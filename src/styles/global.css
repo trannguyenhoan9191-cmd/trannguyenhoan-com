@@ -1,0 +1,254 @@
+/*
+  Trần Nguyên Hoàn — Deep Blue AI/Tech aesthetic
+  Glassmorphism + amber accent (matching thank-you page style)
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+	/* Deep blue gradient palette */
+	--bg-from: #0a0e27;
+	--bg-mid: #1a1f4a;
+	--bg-to: #2d3561;
+
+	/* Glass surfaces */
+	--glass-bg: rgba(255, 255, 255, 0.08);
+	--glass-bg-hover: rgba(255, 255, 255, 0.12);
+	--glass-border: rgba(255, 255, 255, 0.15);
+	--glass-border-hover: rgba(255, 255, 255, 0.4);
+
+	/* Text */
+	--text: #ffffff;
+	--text-muted: #cbd5e1;
+	--text-dim: #94a3b8;
+
+	/* Amber accent */
+	--accent: #fbbf24;
+	--accent-dark: #f59e0b;
+	--accent-glow: rgba(251, 191, 36, 0.2);
+	--accent-shadow: rgba(251, 191, 36, 0.3);
+
+	/* Semantic colors */
+	--success: #10b981;
+	--success-dark: #059669;
+
+	/* Layout */
+	--max-width: 760px;
+	--max-width-wide: 1000px;
+
+	--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	--font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: var(--font-sans);
+	margin: 0;
+	padding: 0;
+	background: linear-gradient(135deg, var(--bg-from) 0%, var(--bg-mid) 50%, var(--bg-to) 100%);
+	background-attachment: fixed;
+	color: var(--text);
+	font-size: 16px;
+	line-height: 1.7;
+	min-height: 100vh;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+main {
+	width: 100%;
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: 3rem 1.5rem 4rem;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--font-sans);
+	color: var(--text);
+	letter-spacing: -0.02em;
+	line-height: 1.2;
+	font-weight: 700;
+	margin: 2.5rem 0 1rem;
+}
+
+h1 {
+	font-size: 2.5rem;
+	letter-spacing: -0.03em;
+	font-weight: 800;
+}
+
+h2 {
+	font-size: 1.75rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+}
+
+p {
+	margin: 0 0 1.25rem;
+	color: var(--text-muted);
+}
+
+strong, b {
+	color: var(--text);
+	font-weight: 600;
+}
+
+/* Highlight */
+.highlight {
+	color: var(--accent);
+	font-weight: 700;
+}
+
+/* Links */
+a {
+	color: var(--accent);
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+a:hover {
+	color: var(--accent-dark);
+}
+
+/* Quote */
+blockquote {
+	border-left: 3px solid var(--accent);
+	padding: 1rem 0 1rem 1.5rem;
+	margin: 1.5rem 0;
+	color: var(--text-muted);
+	font-style: italic;
+	background: var(--glass-bg);
+	border-radius: 0 12px 12px 0;
+}
+
+blockquote p {
+	color: var(--text-muted);
+	margin-bottom: 0;
+}
+
+/* Code */
+code {
+	font-family: var(--font-mono);
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	padding: 0.15rem 0.4rem;
+	border-radius: 4px;
+	font-size: 0.875em;
+	color: var(--accent);
+}
+
+pre {
+	background: rgba(0, 0, 0, 0.3);
+	border: 1px solid var(--glass-border);
+	padding: 1.25rem 1.5rem;
+	border-radius: 12px;
+	overflow-x: auto;
+	margin: 1.5rem 0;
+	font-size: 0.875rem;
+	backdrop-filter: blur(10px);
+}
+
+pre code {
+	background: transparent;
+	border: none;
+	padding: 0;
+	color: var(--text);
+}
+
+/* HR */
+hr {
+	border: none;
+	border-top: 1px solid var(--glass-border);
+	margin: 3rem 0;
+}
+
+/* Lists */
+ul, ol {
+	padding-left: 1.5rem;
+	margin: 1rem 0;
+}
+
+li {
+	margin: 0.5rem 0;
+	color: var(--text-muted);
+}
+
+li strong {
+	color: var(--text);
+}
+
+/* Tables */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 1.5rem 0;
+	background: var(--glass-bg);
+	border-radius: 12px;
+	overflow: hidden;
+	backdrop-filter: blur(10px);
+}
+
+th, td {
+	border: 1px solid var(--glass-border);
+	padding: 0.875rem 1rem;
+	text-align: left;
+}
+
+th {
+	background: rgba(255, 255, 255, 0.05);
+	font-weight: 600;
+	color: var(--text);
+}
+
+td {
+	color: var(--text-muted);
+}
+
+/* Images */
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 16px;
+	border: 1px solid var(--glass-border);
+}
+
+/* Selection */
+::selection {
+	background: var(--accent);
+	color: var(--bg-from);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--bg-from);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--glass-border);
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--glass-border-hover);
+}
+
+@media (max-width: 720px) {
+	h1 { font-size: 2rem; }
+	h2 { font-size: 1.5rem; }
+	main { padding: 2rem 1.25rem 3rem; }
+}

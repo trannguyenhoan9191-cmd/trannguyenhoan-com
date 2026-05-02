@@ -1,0 +1,188 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="vi">
+	<head>
+		<BaseHead title="Về tôi" description="Trần Nguyên Hoàn — Tôi tin người Việt kinh doanh không nên bị bỏ lại phía sau bởi công nghệ AI." />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="about-hero">
+				<div class="badge">
+					<span>◆ Về tôi</span>
+				</div>
+				<h1>Trần Nguyên Hoàn</h1>
+				<p class="lead">
+					Tôi xây bộ não AI vận hành cho chính mình — và viết lại hành trình đó để chủ shop, freelancer, SME Việt Nam có thể làm cùng.
+				</p>
+			</section>
+
+			<section class="why-card">
+				<div class="why-label">WHY của tôi</div>
+				<p class="why-text">
+					Tôi tin rằng <span class="highlight">người Việt kinh doanh không nên bị bỏ lại phía sau bởi công nghệ AI</span> — chỉ vì họ không có đội ngũ kỹ thuật hay ngân sách lớn.
+				</p>
+			</section>
+
+			<section class="story">
+				<h2>Hành trình của tôi</h2>
+
+				<p>Tôi đã từng là người <strong>học rất nhiều</strong> nhưng <strong>làm được rất ít</strong>.</p>
+
+				<p>Mỗi khóa học mới đều có vẻ là chìa khóa. Học xong lại loay hoay. Quay lại thực tế kinh doanh — vẫn cảm giác mất kiểm soát.</p>
+
+				<p>Một đêm 2 giờ sáng, người thầy của tôi — <strong>Phạm Thành Long</strong> — gọi và nói: <em>"Mày phải gặp Claude."</em></p>
+
+				<p>Đó là bước ngoặt. Claude không phải bot trả lời. Nó là <strong>một bộ não</strong> — và cái khác biệt lớn nhất: tôi có thể đưa <span class="highlight">data thật</span> của mình cho nó đọc.</p>
+
+				<p>Sau vài tháng, tôi xây được bộ não AI vận hành cho chính mình. Marketing chạy bằng data. Không còn may rủi.</p>
+
+				<p>Và tôi quyết định: chia sẻ lại tất cả.</p>
+			</section>
+
+			<section class="cta-final">
+				<h2>Bạn có cùng tôi không?</h2>
+				<p>Nếu bạn đang loay hoay với data marketing lúc 2 giờ sáng — bạn không một mình.</p>
+				<a href="/blog" class="btn-primary">Đọc blog →</a>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.about-hero {
+		text-align: center;
+		padding: 4rem 0 2rem;
+	}
+
+	.badge {
+		display: inline-flex;
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+		padding: 0.4rem 0.875rem;
+		border-radius: 100px;
+		font-size: 0.8rem;
+		color: var(--accent);
+		font-family: var(--font-mono);
+		margin-bottom: 1.5rem;
+		backdrop-filter: blur(10px);
+	}
+
+	.about-hero h1 {
+		font-size: clamp(2.5rem, 5vw, 3.5rem);
+		font-weight: 800;
+		letter-spacing: -0.03em;
+		margin: 0 0 1rem;
+		line-height: 1.1;
+	}
+
+	.lead {
+		font-size: 1.15rem;
+		color: var(--text-muted);
+		max-width: 580px;
+		margin: 0 auto;
+		line-height: 1.7;
+	}
+
+	.why-card {
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+		border-radius: 20px;
+		padding: 2rem 1.75rem;
+		margin: 3rem 0;
+		backdrop-filter: blur(10px);
+		text-align: center;
+	}
+
+	.why-label {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		color: var(--accent);
+		font-family: var(--font-mono);
+		font-weight: 600;
+		margin-bottom: 1rem;
+	}
+
+	.why-text {
+		font-size: 1.25rem;
+		color: var(--text);
+		line-height: 1.6;
+		margin: 0;
+		font-weight: 500;
+	}
+
+	.highlight {
+		color: var(--accent);
+		font-weight: 700;
+	}
+
+	.story {
+		margin: 4rem 0;
+	}
+
+	.story h2 {
+		font-size: 0.825rem;
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		color: var(--text-dim);
+		font-weight: 600;
+		margin-bottom: 1.5rem;
+		font-family: var(--font-mono);
+	}
+
+	.story p {
+		font-size: 1.05rem;
+		line-height: 1.85;
+		color: var(--text-muted);
+	}
+
+	.story p strong {
+		color: var(--text);
+	}
+
+	.cta-final {
+		text-align: center;
+		padding: 3rem 1.5rem;
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+		border-radius: 20px;
+		margin: 3rem 0;
+		backdrop-filter: blur(10px);
+	}
+
+	.cta-final h2 {
+		font-size: 1.75rem;
+		margin: 0 0 1rem;
+	}
+
+	.cta-final p {
+		color: var(--text-muted);
+		margin-bottom: 1.5rem;
+	}
+
+	.btn-primary {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.875rem 1.75rem;
+		background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+		color: var(--bg-from);
+		border-radius: 12px;
+		font-weight: 600;
+		font-size: 0.95rem;
+		transition: all 0.2s ease;
+		box-shadow: 0 10px 30px var(--accent-shadow);
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 15px 40px var(--accent-shadow);
+		color: var(--bg-from);
+	}
+</style>

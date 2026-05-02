@@ -1,0 +1,67 @@
+---
+const today = new Date();
+---
+
+<footer>
+	<div class="footer-inner">
+		<div class="footer-brand">
+			<span class="footer-mark">◆</span>
+			<span>Trần Nguyên Hoàn</span>
+		</div>
+		<p class="footer-tagline">Người Việt kinh doanh không bị bỏ lại phía sau bởi công nghệ AI.</p>
+		<div class="footer-meta">
+			<span>© {today.getFullYear()}</span>
+			<span class="dot">·</span>
+			<span>Built with Claude</span>
+		</div>
+	</div>
+</footer>
+
+<style>
+	footer {
+		border-top: 1px solid var(--border);
+		margin-top: 6rem;
+		padding: 3rem 1.5rem 2rem;
+	}
+
+	.footer-inner {
+		max-width: var(--max-width-wide);
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.footer-brand {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-weight: 600;
+		color: var(--text);
+		font-size: 0.95rem;
+	}
+
+	.footer-mark {
+		color: var(--accent);
+	}
+
+	.footer-tagline {
+		color: var(--text-muted);
+		font-size: 0.875rem;
+		max-width: 480px;
+		margin: 0.75rem auto 1.5rem;
+		line-height: 1.6;
+	}
+
+	.footer-meta {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		font-size: 0.8rem;
+		color: var(--text-dim);
+		font-family: var(--font-mono);
+	}
+
+	.dot {
+		opacity: 0.5;
+	}
+</style>
