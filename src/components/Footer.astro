@@ -8,9 +8,24 @@ const today = new Date();
 			<span class="footer-mark">◆</span>
 			<span>Trần Nguyên Hoàn</span>
 		</div>
-		<p class="footer-tagline">Người Việt kinh doanh không bị bỏ lại phía sau bởi công nghệ AI.</p>
+		<p class="footer-tagline">
+			Người Việt kinh doanh không bị bỏ lại phía sau bởi công nghệ AI.
+		</p>
+
+		<div class="footer-links">
+			<a href="https://www.facebook.com/1050261081496330" target="_blank" rel="noopener" aria-label="Facebook">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+			</a>
+			<a href="mailto:trannguyenhoan9191@gmail.com" aria-label="Email">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+			</a>
+			<a href="/rss.xml" aria-label="RSS Feed">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+			</a>
+		</div>
+
 		<div class="footer-meta">
-			<span>© {today.getFullYear()}</span>
+			<span>© {today.getFullYear()} Trần Nguyên Hoàn</span>
 			<span class="dot">·</span>
 			<span>Built with Claude</span>
 		</div>
@@ -19,7 +34,7 @@ const today = new Date();
 
 <style>
 	footer {
-		border-top: 1px solid var(--border);
+		border-top: 1px solid var(--glass-border);
 		margin-top: 6rem;
 		padding: 3rem 1.5rem 2rem;
 	}
@@ -36,19 +51,47 @@ const today = new Date();
 		gap: 0.5rem;
 		font-weight: 600;
 		color: var(--text);
-		font-size: 0.95rem;
+		font-size: 1rem;
 	}
 
 	.footer-mark {
 		color: var(--accent);
+		filter: drop-shadow(0 0 8px var(--accent-glow));
 	}
 
 	.footer-tagline {
 		color: var(--text-muted);
-		font-size: 0.875rem;
-		max-width: 480px;
+		font-size: 0.9rem;
+		max-width: 520px;
 		margin: 0.75rem auto 1.5rem;
 		line-height: 1.6;
+	}
+
+	.footer-links {
+		display: flex;
+		justify-content: center;
+		gap: 1.25rem;
+		margin: 1.5rem 0;
+	}
+
+	.footer-links a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+		border-radius: 10px;
+		color: var(--text-muted);
+		transition: all 0.2s ease;
+	}
+
+	.footer-links a:hover {
+		color: var(--accent);
+		border-color: var(--accent);
+		background: var(--accent-glow);
+		transform: translateY(-2px);
 	}
 
 	.footer-meta {
@@ -59,9 +102,8 @@ const today = new Date();
 		font-size: 0.8rem;
 		color: var(--text-dim);
 		font-family: var(--font-mono);
+		margin-top: 1.5rem;
 	}
 
-	.dot {
-		opacity: 0.5;
-	}
+	.dot { opacity: 0.5; }
 </style>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://trannguyenhoan.com/sitemap-index.xml

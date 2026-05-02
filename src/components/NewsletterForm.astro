@@ -1,0 +1,202 @@
+---
+interface Props {
+	variant?: 'hero' | 'inline' | 'footer';
+	headline?: string;
+	subheadline?: string;
+}
+
+const {
+	variant = 'inline',
+	headline = 'Nhận Bài Chẩn Đoán Bộ Não AI',
+	subheadline = 'Trong 5 phút, biết hệ thống AI bạn đang thiếu gì. Miễn phí.',
+} = Astro.props;
+---
+
+<form class={`newsletter newsletter--${variant}`} data-newsletter>
+	<div class="newsletter-text">
+		<h3>{headline}</h3>
+		<p>{subheadline}</p>
+	</div>
+	<div class="newsletter-fields">
+		<input type="text" name="name" placeholder="Tên của bạn" required autocomplete="name" />
+		<input type="email" name="email" placeholder="Email" required autocomplete="email" />
+		<button type="submit">
+			<span class="btn-text">Nhận chẩn đoán →</span>
+			<span class="btn-loading" hidden>Đang gửi...</span>
+		</button>
+	</div>
+	<p class="newsletter-trust">
+		Tôi sẽ gửi cho bạn bản chẩn đoán + những bài viết hữu ích nhất. Hủy đăng ký bất kỳ lúc nào.
+	</p>
+	<p class="newsletter-msg" data-msg hidden></p>
+</form>
+
+<script>
+	document.querySelectorAll<HTMLFormElement>('form[data-newsletter]').forEach((form) => {
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			const btn = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
+			const btnText = btn.querySelector<HTMLElement>('.btn-text')!;
+			const btnLoad = btn.querySelector<HTMLElement>('.btn-loading')!;
+			const msgEl = form.querySelector<HTMLElement>('[data-msg]')!;
+
+			btn.disabled = true;
+			btnText.hidden = true;
+			btnLoad.hidden = false;
+			msgEl.hidden = true;
+
+			const fd = new FormData(form);
+			const payload = {
+				name: String(fd.get('name') || ''),
+				email: String(fd.get('email') || ''),
+			};
+
+			try {
+				const res = await fetch('/api/subscribe', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(payload),
+				});
+				const data = await res.json().catch(() => ({}));
+
+				if (res.ok && data.ok) {
+					form.reset();
+					msgEl.textContent = '✓ Cảm ơn bạn! Kiểm tra email để nhận bản chẩn đoán.';
+					msgEl.className = 'newsletter-msg newsletter-msg--ok';
+				} else {
+					throw new Error(data.error || 'Có lỗi xảy ra. Thử lại nhé.');
+				}
+			} catch (err) {
+				msgEl.textContent = '✗ ' + (err instanceof Error ? err.message : 'Lỗi không xác định');
+				msgEl.className = 'newsletter-msg newsletter-msg--err';
+			} finally {
+				msgEl.hidden = false;
+				btn.disabled = false;
+				btnText.hidden = false;
+				btnLoad.hidden = true;
+			}
+		});
+	});
+</script>
+
+<style>
+	.newsletter {
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+		border-radius: 20px;
+		padding: 2rem 1.75rem;
+		backdrop-filter: blur(10px);
+		text-align: center;
+	}
+
+	.newsletter--hero {
+		margin: 2.5rem auto 0;
+		max-width: 540px;
+	}
+
+	.newsletter--inline {
+		margin: 3rem 0;
+	}
+
+	.newsletter--footer {
+		margin: 3rem auto;
+		max-width: 600px;
+	}
+
+	.newsletter-text h3 {
+		font-size: 1.375rem;
+		margin: 0 0 0.5rem;
+		color: var(--text);
+		letter-spacing: -0.01em;
+	}
+
+	.newsletter-text p {
+		color: var(--text-muted);
+		margin: 0 0 1.25rem;
+		font-size: 0.95rem;
+	}
+
+	.newsletter-fields {
+		display: flex;
+		flex-direction: column;
+		gap: 0.625rem;
+	}
+
+	.newsletter-fields input {
+		background: rgba(0, 0, 0, 0.25);
+		border: 1px solid var(--glass-border);
+		color: var(--text);
+		padding: 0.875rem 1rem;
+		border-radius: 10px;
+		font-size: 0.95rem;
+		font-family: inherit;
+		transition: all 0.2s ease;
+	}
+
+	.newsletter-fields input::placeholder {
+		color: var(--text-dim);
+	}
+
+	.newsletter-fields input:focus {
+		outline: none;
+		border-color: var(--accent);
+		background: rgba(0, 0, 0, 0.4);
+		box-shadow: 0 0 0 3px var(--accent-glow);
+	}
+
+	.newsletter-fields button {
+		background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+		color: var(--bg-from);
+		padding: 0.875rem 1.5rem;
+		border: none;
+		border-radius: 10px;
+		font-weight: 700;
+		font-size: 0.95rem;
+		font-family: inherit;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		box-shadow: 0 8px 24px var(--accent-shadow);
+	}
+
+	.newsletter-fields button:hover:not(:disabled) {
+		transform: translateY(-1px);
+		box-shadow: 0 12px 32px var(--accent-shadow);
+	}
+
+	.newsletter-fields button:disabled {
+		opacity: 0.7;
+		cursor: not-allowed;
+	}
+
+	.newsletter-trust {
+		font-size: 0.75rem;
+		color: var(--text-dim);
+		margin: 1rem 0 0;
+	}
+
+	.newsletter-msg {
+		margin: 1rem 0 0;
+		padding: 0.75rem;
+		border-radius: 8px;
+		font-size: 0.875rem;
+	}
+
+	.newsletter-msg--ok {
+		background: rgba(16, 185, 129, 0.15);
+		color: #6ee7b7;
+		border: 1px solid rgba(16, 185, 129, 0.3);
+	}
+
+	.newsletter-msg--err {
+		background: rgba(239, 68, 68, 0.15);
+		color: #fca5a5;
+		border: 1px solid rgba(239, 68, 68, 0.3);
+	}
+
+	@media (min-width: 540px) {
+		.newsletter-fields {
+			flex-direction: row;
+		}
+		.newsletter-fields input { flex: 1; }
+	}
+</style>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e27"/>
+      <stop offset="50%" stop-color="#1a1f4a"/>
+      <stop offset="100%" stop-color="#2d3561"/>
+    </linearGradient>
+    <linearGradient id="amber" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="0%" r="50%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Logo mark -->
+  <g transform="translate(80 80)">
+    <polygon points="0,-22 22,0 0,22 -22,0" fill="url(#amber)" transform="translate(22 22)"/>
+    <text x="60" y="32" font-family="Inter, sans-serif" font-weight="700" font-size="22" fill="#ffffff">Trần Nguyên Hoàn</text>
+  </g>
+
+  <!-- Live badge -->
+  <g transform="translate(80 140)">
+    <rect x="0" y="0" width="320" height="36" rx="18" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)"/>
+    <circle cx="20" cy="18" r="4" fill="#4ade80"/>
+    <text x="36" y="23" font-family="JetBrains Mono, monospace" font-size="13" fill="#cbd5e1">AI Operating Brain — Đang vận hành</text>
+  </g>
+
+  <!-- Main title -->
+  <text x="80" y="270" font-family="Inter, sans-serif" font-weight="800" font-size="76" fill="#ffffff" letter-spacing="-2">Người Việt kinh doanh</text>
+  <text x="80" y="356" font-family="Inter, sans-serif" font-weight="800" font-size="76" fill="url(#amber)" letter-spacing="-2">không bị bỏ lại</text>
+  <text x="80" y="442" font-family="Inter, sans-serif" font-weight="800" font-size="76" fill="#ffffff" letter-spacing="-2">phía sau bởi AI.</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="510" font-family="Inter, sans-serif" font-weight="400" font-size="22" fill="#cbd5e1">Hành trình xây bộ não AI vận hành bằng dữ liệu thật</text>
+
+  <!-- URL -->
+  <text x="80" y="570" font-family="JetBrains Mono, monospace" font-size="18" fill="#fbbf24">trannguyenhoan.com</text>
+</svg>
