@@ -1,0 +1,749 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="vi">
+	<head>
+		<BaseHead
+			title="Workshop Miễn Phí — Bộ Não AI Vận Hành cho Chủ Shop"
+			description="90 phút workshop miễn phí: setup bộ máy AI cơ bản + pipeline tự sản xuất content. Dành cho chủ shop, freelancer, SME Việt Nam."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main class="lp">
+			<!-- HERO -->
+			<section class="hero">
+				<div class="badge">
+					<span class="dot"></span>
+					<span>WORKSHOP MIỄN PHÍ — 90 PHÚT</span>
+				</div>
+
+				<h1 class="hero-title">
+					Cách tôi build <span class="gradient-text">Bộ Não AI</span><br/>
+					tự sản xuất content marketing<br/>
+					<span class="ai-text">mỗi ngày</span> — không thuê content writer.
+				</h1>
+
+				<p class="hero-sub">
+					Tôi sẽ chỉ bạn <strong>chính hệ thống tôi đang dùng</strong> — từ bước 1 setup
+					bộ não AI cơ bản đến pipeline tự động sản xuất content marketing
+					trên dữ liệu thật của doanh nghiệp bạn.
+				</p>
+
+				<div class="hero-meta">
+					<div class="meta-item">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm5 11h-6V6h2v5h4z"/></svg>
+						<span>90 phút live</span>
+					</div>
+					<div class="meta-item">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"/></svg>
+						<span>Live Q&A</span>
+					</div>
+					<div class="meta-item">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+						<span>Recording sau Workshop</span>
+					</div>
+				</div>
+
+				<form class="lead-form" id="leadForm">
+					<div class="form-fields">
+						<input type="text" name="name" placeholder="Họ và tên" required autocomplete="name" />
+						<input type="email" name="email" placeholder="Email" required autocomplete="email" />
+						<input type="tel" name="phone" placeholder="Số điện thoại (Zalo)" autocomplete="tel" />
+					</div>
+					<button type="submit">
+						<span class="btn-text">Đăng ký miễn phí ngay →</span>
+						<span class="btn-loading" hidden>Đang gửi...</span>
+					</button>
+					<p class="form-trust">
+						Bạn sẽ nhận email xác nhận + Zoom link trong vòng 5 phút. Không spam.
+					</p>
+					<p class="form-msg" id="formMsg" hidden></p>
+				</form>
+			</section>
+
+			<!-- WHAT YOU'LL LEARN -->
+			<section class="modules">
+				<div class="section-label">3 PHẦN BẠN SẼ HỌC</div>
+				<h2>Workshop dạy chính xác những gì?</h2>
+
+				<div class="module-grid">
+					<article class="module-card">
+						<div class="module-num">01</div>
+						<h3>Setup Bộ Não AI cơ bản</h3>
+						<p>
+							Cài đặt 2 lớp đầu của <strong>Kiến Trúc 4 Lớp</strong>:
+							Supermetrics (kéo data từ Meta/TikTok/Google/Shopee về 1 chỗ) +
+							Obsidian (vault chứa data + customer + campaign log).
+						</p>
+						<ul>
+							<li>Connect 5 data source phổ biến trong 30 phút</li>
+							<li>Cấu trúc vault Obsidian chuẩn cho chủ shop</li>
+							<li>Folder structure + tagging system thực chiến</li>
+						</ul>
+					</article>
+
+					<article class="module-card">
+						<div class="module-num">02</div>
+						<h3>Pipeline tự sản xuất content</h3>
+						<p>
+							Cách feed dữ liệu thật vào Claude để <strong>tự sinh content marketing</strong>
+							mỗi ngày — bài Facebook, caption ads, email, blog post —
+							tất cả đều cá nhân hoá theo brand voice của bạn.
+						</p>
+						<ul>
+							<li>Prompt template em đang dùng (có thể copy)</li>
+							<li>Workflow tạo 7 ngày content trong 30 phút</li>
+							<li>Cách giữ brand voice nhất quán không lệch giọng</li>
+						</ul>
+					</article>
+
+					<article class="module-card">
+						<div class="module-num">03</div>
+						<h3>Live Demo trên data thật</h3>
+						<p>
+							Tôi mở chính bộ não AI tôi đang dùng — show từng prompt,
+							từng output, từng quyết định. <strong>Không lý thuyết, chỉ thực chiến.</strong>
+						</p>
+						<ul>
+							<li>Demo phân tích 1 campaign Meta Ads thật</li>
+							<li>Demo sinh 5 caption FB từ data 1 sản phẩm</li>
+							<li>Q&A trực tiếp về case của bạn</li>
+						</ul>
+					</article>
+				</div>
+			</section>
+
+			<!-- BONUS -->
+			<section class="bonus">
+				<div class="section-label">QUÀ TẶNG KÈM</div>
+				<h2>Mỗi người tham gia sẽ nhận:</h2>
+
+				<div class="bonus-grid">
+					<div class="bonus-card">
+						<div class="bonus-icon">📋</div>
+						<h4>Vault Obsidian Template</h4>
+						<p>File vault Obsidian em đang dùng — copy về dùng ngay, đã setup folder + tag + dataview</p>
+					</div>
+					<div class="bonus-card">
+						<div class="bonus-icon">🎯</div>
+						<h4>10 Prompt Template</h4>
+						<p>10 prompt Claude em dùng để sinh content marketing — chỉ thay tên sản phẩm là chạy</p>
+					</div>
+					<div class="bonus-card">
+						<div class="bonus-icon">📹</div>
+						<h4>Recording Workshop</h4>
+						<p>Bản ghi đầy đủ workshop — xem lại bao nhiêu lần tuỳ thích</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- WHO IS THIS FOR -->
+			<section class="who-for">
+				<div class="who-card">
+					<h2>Workshop này dành cho ai?</h2>
+					<div class="who-grid">
+						<div class="who-yes">
+							<h4>✅ Bạn nên tham dự nếu</h4>
+							<ul>
+								<li>Đang là chủ shop / freelancer / SME doanh thu 30tr–500tr/tháng</li>
+								<li>Đã chạy ads Meta/TikTok ít nhất 3 tháng</li>
+								<li>Cảm thấy "đốt tiền ads không hiệu quả"</li>
+								<li>Muốn dùng AI nhưng không có đội kỹ thuật</li>
+								<li>Sẵn sàng dành 30 phút/ngày để build hệ thống</li>
+							</ul>
+						</div>
+						<div class="who-no">
+							<h4>❌ Không phù hợp nếu</h4>
+							<ul>
+								<li>Mới khởi nghiệp, chưa có data marketing</li>
+								<li>Tìm "quick fix" 1 tuần hết vấn đề</li>
+								<li>Không sẵn sàng học hệ thống có cấu trúc</li>
+								<li>Đã có team kỹ thuật in-house đủ mạnh</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ABOUT -->
+			<section class="about">
+				<div class="section-label">VỀ DIỄN GIẢ</div>
+				<h2>Trần Nguyên Hoàn</h2>
+				<p class="about-bio">
+					Tôi đã từng là người <strong>học rất nhiều</strong> nhưng <strong>làm được rất ít</strong>.
+					Mỗi khoá học mới đều có vẻ là chìa khoá — học xong lại loay hoay.
+				</p>
+				<p class="about-bio">
+					Một đêm 2 giờ sáng, người thầy của tôi <strong>Phạm Thành Long</strong> nói:
+					<em>"Mày phải gặp Claude."</em> Tôi build bộ não AI đầu tiên cho chính mình.
+					Marketing chạy bằng data. Không còn may rủi.
+				</p>
+				<p class="about-bio">
+					Workshop này tôi chia sẻ <strong>chính xác hệ thống tôi đang dùng</strong> —
+					không phải lý thuyết, không phải case study quốc tế dịch ra.
+					Là bộ não AI của một người Việt, build cho người Việt, dùng dữ liệu Việt.
+				</p>
+			</section>
+
+			<!-- FAQ -->
+			<section class="faq">
+				<div class="section-label">CÂU HỎI THƯỜNG GẶP</div>
+
+				<details>
+					<summary>Tôi không biết code, có theo được không?</summary>
+					<p>Có. Workshop được thiết kế cho người KHÔNG biết code. Bộ não AI của em hoạt động bằng cấu hình + prompt — không cần viết dòng code nào.</p>
+				</details>
+
+				<details>
+					<summary>Có phải mua thêm tool đắt tiền không?</summary>
+					<p>Tools cơ bản trong workshop: Obsidian (FREE), Claude (~20$/tháng), Supermetrics (có gói FREE và paid). Tổng chi phí ban đầu < 500k/tháng.</p>
+				</details>
+
+				<details>
+					<summary>Sau workshop có upsell gì không?</summary>
+					<p>Có. Cuối workshop tôi sẽ giới thiệu khoá học sâu hơn (Bộ Não AI 30 ngày). Nhưng không bắt buộc — nội dung 90 phút workshop đủ để bạn tự setup được.</p>
+				</details>
+
+				<details>
+					<summary>Workshop diễn ra khi nào?</summary>
+					<p>Sau khi đăng ký, bạn sẽ nhận email xác nhận trong vòng 5 phút kèm Zoom link và lịch cụ thể. Em sẽ chọn buổi gần nhất phù hợp với lịch của bạn.</p>
+				</details>
+
+				<details>
+					<summary>Nếu không tham dự được, có recording không?</summary>
+					<p>Có. Tất cả người đăng ký đều nhận recording — xem lại bao nhiêu lần tuỳ thích.</p>
+				</details>
+			</section>
+
+			<!-- FINAL CTA -->
+			<section class="final-cta">
+				<h2>Sẵn sàng build bộ não AI đầu tiên của bạn?</h2>
+				<p>Workshop 90 phút có thể thay đổi cách bạn làm marketing trong 12 tháng tới.</p>
+				<a href="#leadForm" class="btn-primary" onclick="document.getElementById('leadForm').scrollIntoView({behavior:'smooth'});return false;">
+					Đăng ký miễn phí ngay →
+				</a>
+			</section>
+		</main>
+		<Footer />
+
+		<script>
+			document.getElementById('leadForm')?.addEventListener('submit', async (e) => {
+				e.preventDefault();
+				const form = e.target as HTMLFormElement;
+				const btn = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
+				const btnText = btn.querySelector<HTMLElement>('.btn-text')!;
+				const btnLoad = btn.querySelector<HTMLElement>('.btn-loading')!;
+				const msgEl = document.getElementById('formMsg')!;
+
+				btn.disabled = true;
+				btnText.hidden = true;
+				btnLoad.hidden = false;
+				msgEl.hidden = true;
+
+				const fd = new FormData(form);
+				const payload = {
+					name: String(fd.get('name') || ''),
+					email: String(fd.get('email') || ''),
+					phone: String(fd.get('phone') || ''),
+					source: 'workshop',
+					tag: 'workshop-bonao-ai',
+				};
+
+				try {
+					const res = await fetch('/api/subscribe', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify(payload),
+					});
+					const data = await res.json().catch(() => ({}));
+
+					if (res.ok && data.ok) {
+						form.reset();
+						msgEl.textContent = '✓ Cảm ơn bạn! Email xác nhận + Zoom link đang được gửi đến hộp thư của bạn (kiểm tra cả Spam).';
+						msgEl.className = 'form-msg ok';
+					} else {
+						throw new Error(data.error || 'Có lỗi xảy ra. Thử lại nhé.');
+					}
+				} catch (err) {
+					msgEl.textContent = '✗ ' + (err instanceof Error ? err.message : 'Lỗi không xác định');
+					msgEl.className = 'form-msg err';
+				} finally {
+					msgEl.hidden = false;
+					btn.disabled = false;
+					btnText.hidden = false;
+					btnLoad.hidden = true;
+				}
+			});
+		</script>
+
+		<style>
+			.lp {
+				max-width: var(--max-width-wide);
+			}
+
+			/* HERO */
+			.hero {
+				padding: 4rem 0 5rem;
+				text-align: center;
+			}
+
+			.badge {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5rem;
+				background: var(--accent-glow);
+				border: 1px solid rgba(251, 191, 36, 0.4);
+				padding: 0.5rem 1rem;
+				border-radius: 100px;
+				font-size: 0.8rem;
+				color: var(--accent);
+				font-family: var(--font-mono);
+				margin-bottom: 2rem;
+				font-weight: 600;
+				letter-spacing: 0.05em;
+			}
+
+			.badge .dot {
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				background: var(--accent);
+				box-shadow: 0 0 12px var(--accent);
+				animation: blink 2s ease-in-out infinite;
+			}
+
+			@keyframes blink {
+				0%, 100% { opacity: 1; }
+				50% { opacity: 0.4; }
+			}
+
+			.hero-title {
+				font-size: clamp(2rem, 5vw, 3.75rem);
+				font-weight: 800;
+				letter-spacing: -0.04em;
+				line-height: 1.05;
+				margin: 0 0 1.5rem;
+				color: var(--text);
+			}
+
+			.gradient-text {
+				background: linear-gradient(120deg, var(--accent), #fde68a, var(--accent));
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				background-size: 200% auto;
+				animation: shine 4s linear infinite;
+			}
+
+			@keyframes shine {
+				to { background-position: 200% center; }
+			}
+
+			.ai-text {
+				color: var(--accent);
+				filter: drop-shadow(0 0 24px var(--accent-glow));
+			}
+
+			.hero-sub {
+				font-size: 1.15rem;
+				color: var(--text-muted);
+				max-width: 660px;
+				margin: 0 auto 2.5rem;
+				line-height: 1.7;
+			}
+
+			.hero-meta {
+				display: flex;
+				justify-content: center;
+				gap: 2rem;
+				flex-wrap: wrap;
+				margin-bottom: 2.5rem;
+				color: var(--text-dim);
+				font-size: 0.875rem;
+			}
+
+			.meta-item {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4rem;
+			}
+
+			.meta-item svg {
+				color: var(--accent);
+			}
+
+			/* FORM */
+			.lead-form {
+				max-width: 520px;
+				margin: 0 auto;
+				background: var(--glass-bg);
+				border: 1px solid var(--glass-border);
+				border-radius: 20px;
+				padding: 2rem 1.75rem;
+				backdrop-filter: blur(10px);
+			}
+
+			.form-fields {
+				display: flex;
+				flex-direction: column;
+				gap: 0.75rem;
+				margin-bottom: 1rem;
+			}
+
+			.form-fields input {
+				background: rgba(0, 0, 0, 0.3);
+				border: 1px solid var(--glass-border);
+				color: var(--text);
+				padding: 1rem 1.25rem;
+				border-radius: 12px;
+				font-size: 1rem;
+				font-family: inherit;
+				transition: all 0.2s ease;
+			}
+
+			.form-fields input::placeholder {
+				color: var(--text-dim);
+			}
+
+			.form-fields input:focus {
+				outline: none;
+				border-color: var(--accent);
+				background: rgba(0, 0, 0, 0.5);
+				box-shadow: 0 0 0 3px var(--accent-glow);
+			}
+
+			.lead-form button {
+				width: 100%;
+				background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+				color: var(--bg-from);
+				padding: 1.125rem 1.5rem;
+				border: none;
+				border-radius: 12px;
+				font-weight: 800;
+				font-size: 1.05rem;
+				font-family: inherit;
+				cursor: pointer;
+				transition: all 0.2s ease;
+				box-shadow: 0 12px 30px var(--accent-shadow);
+			}
+
+			.lead-form button:hover:not(:disabled) {
+				transform: translateY(-2px);
+				box-shadow: 0 18px 40px var(--accent-shadow);
+			}
+
+			.lead-form button:disabled {
+				opacity: 0.7;
+				cursor: not-allowed;
+			}
+
+			.form-trust {
+				font-size: 0.8rem;
+				color: var(--text-dim);
+				text-align: center;
+				margin: 1rem 0 0;
+			}
+
+			.form-msg {
+				margin: 1rem 0 0;
+				padding: 0.875rem;
+				border-radius: 10px;
+				font-size: 0.9rem;
+				text-align: center;
+			}
+
+			.form-msg.ok {
+				background: rgba(16, 185, 129, 0.15);
+				color: #6ee7b7;
+				border: 1px solid rgba(16, 185, 129, 0.3);
+			}
+
+			.form-msg.err {
+				background: rgba(239, 68, 68, 0.15);
+				color: #fca5a5;
+				border: 1px solid rgba(239, 68, 68, 0.3);
+			}
+
+			/* SECTIONS COMMON */
+			.section-label {
+				font-size: 0.75rem;
+				text-transform: uppercase;
+				letter-spacing: 0.2em;
+				color: var(--accent);
+				font-weight: 700;
+				font-family: var(--font-mono);
+				text-align: center;
+				margin-bottom: 1rem;
+			}
+
+			.lp h2 {
+				text-align: center;
+				font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+				font-weight: 800;
+				letter-spacing: -0.02em;
+				margin: 0 0 3rem;
+			}
+
+			/* MODULES */
+			.modules {
+				padding: 5rem 0;
+			}
+
+			.module-grid {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 1.25rem;
+			}
+
+			.module-card {
+				background: var(--glass-bg);
+				border: 1px solid var(--glass-border);
+				border-radius: 20px;
+				padding: 2rem 1.75rem;
+				backdrop-filter: blur(10px);
+				transition: all 0.2s ease;
+			}
+
+			.module-card:hover {
+				border-color: var(--glass-border-hover);
+				transform: translateY(-3px);
+			}
+
+			.module-num {
+				display: inline-block;
+				font-family: var(--font-mono);
+				font-size: 0.875rem;
+				color: var(--accent);
+				font-weight: 700;
+				letter-spacing: 0.1em;
+				margin-bottom: 0.75rem;
+			}
+
+			.module-card h3 {
+				font-size: 1.5rem;
+				font-weight: 700;
+				margin: 0 0 1rem;
+				letter-spacing: -0.01em;
+			}
+
+			.module-card p {
+				color: var(--text-muted);
+				margin-bottom: 1rem;
+			}
+
+			.module-card ul {
+				color: var(--text-muted);
+				font-size: 0.95rem;
+			}
+
+			.module-card li {
+				margin-bottom: 0.5rem;
+			}
+
+			/* BONUS */
+			.bonus {
+				padding: 5rem 0;
+			}
+
+			.bonus-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+				gap: 1rem;
+			}
+
+			.bonus-card {
+				background: var(--glass-bg);
+				border: 1px solid var(--glass-border);
+				border-radius: 16px;
+				padding: 1.5rem;
+				backdrop-filter: blur(10px);
+				text-align: center;
+			}
+
+			.bonus-icon {
+				font-size: 2.5rem;
+				margin-bottom: 0.75rem;
+			}
+
+			.bonus-card h4 {
+				font-size: 1.1rem;
+				margin: 0 0 0.5rem;
+				color: var(--text);
+			}
+
+			.bonus-card p {
+				color: var(--text-muted);
+				font-size: 0.9rem;
+				margin: 0;
+			}
+
+			/* WHO FOR */
+			.who-for {
+				padding: 5rem 0;
+			}
+
+			.who-card {
+				background: var(--glass-bg);
+				border: 1px solid var(--glass-border);
+				border-radius: 24px;
+				padding: 3rem 2rem;
+				backdrop-filter: blur(10px);
+			}
+
+			.who-card h2 {
+				margin-bottom: 2rem;
+			}
+
+			.who-grid {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 2rem;
+			}
+
+			.who-yes h4, .who-no h4 {
+				font-size: 1.05rem;
+				margin: 0 0 1rem;
+			}
+
+			.who-yes h4 { color: #6ee7b7; }
+			.who-no h4 { color: #fca5a5; }
+
+			.who-yes ul, .who-no ul {
+				color: var(--text-muted);
+				font-size: 0.95rem;
+			}
+
+			.who-yes li, .who-no li {
+				margin-bottom: 0.625rem;
+			}
+
+			/* ABOUT */
+			.about {
+				padding: 5rem 0;
+				max-width: 720px;
+				margin: 0 auto;
+			}
+
+			.about-bio {
+				font-size: 1.05rem;
+				line-height: 1.85;
+				color: var(--text-muted);
+				margin-bottom: 1.25rem;
+			}
+
+			.about-bio strong {
+				color: var(--text);
+			}
+
+			/* FAQ */
+			.faq {
+				padding: 5rem 0;
+				max-width: 760px;
+				margin: 0 auto;
+			}
+
+			details {
+				background: var(--glass-bg);
+				border: 1px solid var(--glass-border);
+				border-radius: 12px;
+				padding: 1.25rem 1.5rem;
+				margin-bottom: 0.75rem;
+				backdrop-filter: blur(10px);
+				transition: all 0.2s ease;
+			}
+
+			details[open] {
+				border-color: var(--accent);
+			}
+
+			summary {
+				cursor: pointer;
+				font-weight: 600;
+				color: var(--text);
+				list-style: none;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			summary::-webkit-details-marker { display: none; }
+
+			summary::after {
+				content: '+';
+				color: var(--accent);
+				font-size: 1.5rem;
+				font-weight: 300;
+				transition: transform 0.2s ease;
+			}
+
+			details[open] summary::after {
+				content: '−';
+			}
+
+			details p {
+				margin: 1rem 0 0;
+				color: var(--text-muted);
+				line-height: 1.7;
+			}
+
+			/* FINAL CTA */
+			.final-cta {
+				text-align: center;
+				padding: 5rem 1.5rem;
+				background: var(--glass-bg);
+				border: 1px solid var(--glass-border);
+				border-radius: 24px;
+				margin: 4rem 0;
+				backdrop-filter: blur(10px);
+			}
+
+			.final-cta h2 {
+				margin-bottom: 1rem;
+			}
+
+			.final-cta p {
+				color: var(--text-muted);
+				margin-bottom: 2rem;
+				font-size: 1.05rem;
+			}
+
+			.btn-primary {
+				display: inline-flex;
+				align-items: center;
+				padding: 1.125rem 2rem;
+				background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+				color: var(--bg-from);
+				border-radius: 12px;
+				font-weight: 800;
+				font-size: 1.05rem;
+				transition: all 0.2s ease;
+				box-shadow: 0 12px 30px var(--accent-shadow);
+				border: none;
+				cursor: pointer;
+			}
+
+			.btn-primary:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 18px 40px var(--accent-shadow);
+				color: var(--bg-from);
+			}
+
+			@media (min-width: 720px) {
+				.module-grid {
+					grid-template-columns: repeat(3, 1fr);
+				}
+				.who-grid {
+					grid-template-columns: 1fr 1fr;
+				}
+				.hero-meta {
+					gap: 2.5rem;
+				}
+			}
+		</style>
+	</body>
+</html>
