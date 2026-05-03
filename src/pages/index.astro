@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
+import GtmBody from '../components/GtmBody.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { getCollection } from 'astro:content';
 
@@ -19,6 +20,7 @@ const latestPosts = posts.slice(0, 6);
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
+		<GtmBody />
 		<Header />
 		<main class="hero-main">
 			<section class="hero">
