@@ -1,6 +1,7 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
@@ -8,31 +9,116 @@ import Header from '../components/Header.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
 import GtmBody from '../components/GtmBody.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data'] & { slug?: string };
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, slug } = Astro.props;
+
+// Build absolute URLs for schema
+const canonicalURL = Astro.url.toString();
+const siteURL = new URL('/', Astro.site).toString().replace(/\/$/, '');
+const heroImageAbsolute = heroImage
+	? new URL((await getImage({ src: heroImage, width: 1200 })).src, Astro.url).toString()
+	: new URL('/og-image.png', Astro.url).toString();
+
+// Get related posts (other blog posts, exclude current)
+const allPosts = await getCollection('blog');
+const relatedPosts = allPosts
+	.filter((p) => p.id !== slug)
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
+
+// Schema markup
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BlogPosting',
+	headline: title,
+	description: description,
+	image: heroImageAbsolute,
+	datePublished: pubDate.toISOString(),
+	dateModified: (updatedDate || pubDate).toISOString(),
+	author: {
+		'@type': 'Person',
+		name: 'Trần Nguyên Hoàn',
+		url: `${siteURL}/about`,
+		sameAs: [
+			'https://www.youtube.com/@hoanclaude',
+			'https://www.tiktok.com/@hoanclaude',
+			'https://www.facebook.com/hoanclaude/',
+		],
+	},
+	publisher: {
+		'@type': 'Person',
+		name: 'Trần Nguyên Hoàn',
+		url: siteURL,
+		logo: {
+			'@type': 'ImageObject',
+			url: `${siteURL}/favicon.svg`,
+		},
+	},
+	mainEntityOfPage: {
+		'@type': 'WebPage',
+		'@id': canonicalURL,
+	},
+	inLanguage: 'vi-VN',
+};
+
+const breadcrumbSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{
+			'@type': 'ListItem',
+			position: 1,
+			name: 'Trang chủ',
+			item: siteURL,
+		},
+		{
+			'@type': 'ListItem',
+			position: 2,
+			name: 'Blog',
+			item: `${siteURL}/blog`,
+		},
+		{
+			'@type': 'ListItem',
+			position: 3,
+			name: title,
+			item: canonicalURL,
+		},
+	],
+};
 ---
 
 <html lang="vi">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} image={heroImageAbsolute} />
+		<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	</head>
 	<body>
 		<GtmBody />
 		<Header />
 		<main>
 			<article>
+				<!-- Breadcrumb visual -->
+				<nav class="breadcrumb" aria-label="Breadcrumb">
+					<a href="/">Trang chủ</a>
+					<span class="separator">›</span>
+					<a href="/blog">Blog</a>
+					<span class="separator">›</span>
+					<span class="current">{title}</span>
+				</nav>
+
 				<div class="post-header">
 					<div class="post-meta">
-						<a href="/blog" class="back-link">← Blog</a>
-						<span class="dot">·</span>
 						<FormattedDate date={pubDate} />
 						{updatedDate && (
 							<>
 								<span class="dot">·</span>
-								<span class="updated">Updated <FormattedDate date={updatedDate} /></span>
+								<span class="updated">Cập nhật <FormattedDate date={updatedDate} /></span>
 							</>
 						)}
+						<span class="dot">·</span>
+						<span>Tác giả: <a href="/about">Trần Nguyên Hoàn</a></span>
 					</div>
 					<h1 class="post-title">{title}</h1>
 					{description && <p class="post-description">{description}</p>}
@@ -40,7 +126,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 				{heroImage && (
 					<div class="hero-image">
-						<Image src={heroImage} alt={title} widths={[480, 800, 1200, 1600]} sizes="(max-width: 720px) 100vw, 1200px" />
+						<Image
+							src={heroImage}
+							alt={title}
+							widths={[480, 800, 1200, 1600]}
+							sizes="(max-width: 720px) 100vw, 1200px"
+							loading="eager"
+							fetchpriority="high"
+						/>
 					</div>
 				)}
 
@@ -53,6 +146,24 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 					headline="Đọc thấy hợp? Theo dõi hành trình"
 					subheadline="Tôi gửi bài mới + Bài Chẩn Đoán Bộ Não AI miễn phí cho bạn."
 				/>
+
+				{relatedPosts.length > 0 && (
+					<aside class="related-posts">
+						<h2 class="related-title">Đọc tiếp</h2>
+						<div class="related-grid">
+							{relatedPosts.map((post) => (
+								<a href={`/blog/${post.id}/`} class="related-card">
+									<div class="related-meta">
+										<FormattedDate date={post.data.pubDate} />
+									</div>
+									<h3 class="related-name">{post.data.title}</h3>
+									<p class="related-desc">{post.data.description}</p>
+									<span class="related-arrow">Đọc bài →</span>
+								</a>
+							))}
+						</div>
+					</aside>
+				)}
 			</article>
 		</main>
 		<Footer />
@@ -60,9 +171,40 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 </html>
 
 <style>
+	.breadcrumb {
+		font-size: 0.85rem;
+		font-family: var(--font-mono);
+		color: var(--text-dim);
+		margin: 1rem 0 1.5rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.breadcrumb a {
+		color: var(--text-muted);
+	}
+
+	.breadcrumb a:hover {
+		color: var(--accent);
+	}
+
+	.breadcrumb .separator {
+		opacity: 0.5;
+	}
+
+	.breadcrumb .current {
+		color: var(--text);
+		max-width: 300px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
 	.post-header {
-		padding: 2rem 0 2.5rem;
-		border-bottom: 1px solid var(--border);
+		padding: 0 0 2.5rem;
+		border-bottom: 1px solid var(--glass-border);
 		margin-bottom: 3rem;
 	}
 
@@ -77,14 +219,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		flex-wrap: wrap;
 	}
 
-	.back-link {
-		color: var(--text-muted);
-		border: none;
-	}
-
-	.back-link:hover {
+	.post-meta a {
 		color: var(--accent);
-		border: none;
 	}
 
 	.dot {
@@ -114,8 +250,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		display: block;
 		width: 100%;
 		height: auto;
-		border-radius: 12px;
-		border: 1px solid var(--border);
+		border-radius: 16px;
+		border: 1px solid var(--glass-border);
 	}
 
 	.prose {
@@ -130,5 +266,105 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 	.prose :global(h3) {
 		margin-top: 2rem;
+	}
+
+	.prose :global(img) {
+		display: block;
+		max-width: 100%;
+		height: auto;
+		border-radius: 12px;
+		margin: 1.5rem auto;
+		border: 1px solid var(--glass-border);
+	}
+
+	/* Related posts */
+	.related-posts {
+		margin: 4rem 0 2rem;
+		padding-top: 3rem;
+		border-top: 1px solid var(--glass-border);
+	}
+
+	.related-title {
+		font-size: 0.825rem;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		color: var(--accent);
+		font-family: var(--font-mono);
+		font-weight: 700;
+		margin: 0 0 1.5rem;
+	}
+
+	.related-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+
+	.related-card {
+		display: block;
+		padding: 1.5rem;
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+		border-radius: 16px;
+		color: var(--text);
+		transition: all 0.2s ease;
+		backdrop-filter: blur(10px);
+		position: relative;
+	}
+
+	.related-card:hover {
+		background: var(--glass-bg-hover);
+		border-color: var(--glass-border-hover);
+		transform: translateY(-2px);
+		color: var(--text);
+	}
+
+	.related-card:hover .related-name {
+		color: var(--accent);
+	}
+
+	.related-card:hover .related-arrow {
+		color: var(--accent);
+	}
+
+	.related-meta {
+		font-size: 0.75rem;
+		color: var(--text-dim);
+		font-family: var(--font-mono);
+		margin-bottom: 0.5rem;
+	}
+
+	.related-name {
+		font-size: 1.1rem;
+		font-weight: 700;
+		margin: 0 0 0.5rem;
+		letter-spacing: -0.01em;
+		line-height: 1.4;
+		color: var(--text);
+	}
+
+	.related-desc {
+		color: var(--text-muted);
+		margin: 0 0 0.75rem;
+		font-size: 0.9rem;
+		line-height: 1.6;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	.related-arrow {
+		font-size: 0.825rem;
+		color: var(--text-muted);
+		font-weight: 500;
+		font-family: var(--font-mono);
+		transition: color 0.15s ease;
+	}
+
+	@media (min-width: 720px) {
+		.related-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
 	}
 </style>
