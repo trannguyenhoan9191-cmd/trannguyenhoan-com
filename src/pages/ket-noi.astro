@@ -1,0 +1,280 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import SocialChannels from '../components/SocialChannels.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+import GtmBody from '../components/GtmBody.astro';
+
+const ZALO_URL = import.meta.env.PUBLIC_ZALO_GROUP_LV1 || 'https://zalo.me/g/s02w01qlfivubguyx6b3';
+---
+
+<!doctype html>
+<html lang="vi">
+	<head>
+		<BaseHead
+			title="Kết Nối Với Hoàn — Tất Cả Kênh Trong 1 Trang"
+			description="Theo dõi Hoàn ở YouTube, TikTok, Facebook, Zalo. Một trang — tất cả kênh — kết nối nhanh."
+		/>
+	</head>
+	<body>
+		<GtmBody />
+		<Header />
+		<main class="lp">
+			<!-- HERO -->
+			<section class="hero">
+				<div class="logo-mark">◆</div>
+				<h1 class="hero-title">
+					Kết nối với <span class="gradient-text">Hoàn</span>
+				</h1>
+				<p class="hero-sub">
+					Eagle thứ 59 — học trò thầy Phạm Thành Long.<br/>
+					Áp dụng tư duy marketing & bán hàng số 1 Việt Nam vào Claude AI.
+				</p>
+			</section>
+
+			<!-- ZALO PROMINENT -->
+			<section class="zalo-block">
+				<div class="zalo-card">
+					<svg width="48" height="48" viewBox="0 0 48 48" fill="currentColor"><path d="M24 4C12.954 4 4 12.954 4 24c0 3.43.864 6.658 2.388 9.482L4 44l10.81-2.323A19.913 19.913 0 0 0 24 44c11.046 0 20-8.954 20-20S35.046 4 24 4zm-7.5 14h2.5l3 6 3-6h2.5v12h-2.5v-7.5L22.5 26h-1l-2.5-3.5V30h-2.5V18zm15 0h2.5v9.5h5V30h-7.5V18z"/></svg>
+					<div class="zalo-text">
+						<div class="zalo-tag">⚡ KÊNH ƯU TIÊN</div>
+						<h2>Nhóm Zalo Level 1</h2>
+						<p>Cộng đồng kín — tôi share content sớm, Q&A trực tiếp, không quảng cáo.</p>
+					</div>
+					<a href={ZALO_URL} target="_blank" rel="noopener" class="zalo-btn" data-cta="zalo-ket-noi">
+						Vào nhóm ngay →
+					</a>
+				</div>
+			</section>
+
+			<!-- SOCIAL CHANNELS -->
+			<SocialChannels heading="Hoặc theo dõi ở các kênh" subheading="Mỗi kênh nội dung khác nhau — chọn cái phù hợp với bạn" />
+
+			<!-- NEWSLETTER -->
+			<NewsletterForm
+				variant="footer"
+				headline="Hoặc nhận content qua email"
+				subheadline="Tôi gửi bài blog mới + Bài Chẩn Đoán Bộ Não AI miễn phí."
+				tag="ket-noi-page"
+			/>
+
+			<!-- QUICK LINKS -->
+			<section class="quick-links">
+				<h3>Truy cập nhanh</h3>
+				<div class="links-grid">
+					<a href="/blog">📝 Đọc blog</a>
+					<a href="/workshop">🎯 Workshop miễn phí</a>
+					<a href="/about">👤 Trần Nguyên Hoàn Là Ai?</a>
+					<a href="mailto:trannguyenhoan9191@gmail.com">✉️ Email Hoàn</a>
+				</div>
+			</section>
+		</main>
+		<Footer />
+
+		<script>
+			document.querySelectorAll('[data-cta="zalo-ket-noi"]').forEach((el) => {
+				el.addEventListener('click', () => {
+					if (typeof (window as any).dataLayer !== 'undefined') {
+						(window as any).dataLayer.push({
+							event: 'zalo_join',
+							source: 'ket-noi-page',
+						});
+					}
+					if (typeof (window as any).fbq === 'function') {
+						(window as any).fbq('track', 'Contact', { source: 'ket-noi-page' });
+					}
+				});
+			});
+		</script>
+
+		<style>
+			.lp {
+				max-width: var(--max-width-wide);
+			}
+
+			.hero {
+				padding: 4rem 0 2rem;
+				text-align: center;
+			}
+
+			.logo-mark {
+				font-size: 4rem;
+				color: var(--accent);
+				filter: drop-shadow(0 0 24px var(--accent-glow));
+				margin-bottom: 1rem;
+				animation: pulse 3s ease-in-out infinite;
+			}
+
+			@keyframes pulse {
+				0%, 100% { transform: rotate(0deg) scale(1); opacity: 1; }
+				50% { transform: rotate(45deg) scale(1.05); opacity: 0.85; }
+			}
+
+			.hero-title {
+				font-size: clamp(2.25rem, 5vw, 3.5rem);
+				font-weight: 800;
+				letter-spacing: -0.03em;
+				margin: 0 0 1rem;
+				line-height: 1.1;
+			}
+
+			.gradient-text {
+				background: linear-gradient(120deg, var(--accent), #fde68a, var(--accent));
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				background-size: 200% auto;
+				animation: shine 4s linear infinite;
+			}
+
+			@keyframes shine {
+				to { background-position: 200% center; }
+			}
+
+			.hero-sub {
+				color: var(--text-muted);
+				font-size: 1.05rem;
+				max-width: 540px;
+				margin: 0 auto;
+				line-height: 1.7;
+			}
+
+			/* Zalo prominent block */
+			.zalo-block {
+				margin: 2.5rem 0 3rem;
+			}
+
+			.zalo-card {
+				background: linear-gradient(135deg, rgba(0, 104, 255, 0.18) 0%, rgba(0, 68, 204, 0.08) 100%);
+				border: 1.5px solid rgba(0, 104, 255, 0.4);
+				border-radius: 24px;
+				padding: 2rem 1.75rem;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 1rem;
+				text-align: center;
+				backdrop-filter: blur(10px);
+				box-shadow: 0 20px 60px rgba(0, 104, 255, 0.15);
+				transition: all 0.3s ease;
+			}
+
+			.zalo-card:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 28px 80px rgba(0, 104, 255, 0.25);
+			}
+
+			.zalo-card svg {
+				color: #0068ff;
+				flex-shrink: 0;
+			}
+
+			.zalo-tag {
+				display: inline-block;
+				background: rgba(251, 191, 36, 0.2);
+				color: var(--accent);
+				font-size: 0.75rem;
+				font-family: var(--font-mono);
+				font-weight: 700;
+				padding: 0.25rem 0.75rem;
+				border-radius: 100px;
+				margin-bottom: 0.5rem;
+				letter-spacing: 0.1em;
+			}
+
+			.zalo-text h2 {
+				font-size: 1.5rem;
+				margin: 0 0 0.5rem;
+				color: var(--text);
+			}
+
+			.zalo-text p {
+				color: var(--text-muted);
+				margin: 0;
+				font-size: 0.95rem;
+			}
+
+			.zalo-btn {
+				display: inline-flex;
+				align-items: center;
+				background: linear-gradient(135deg, #0068ff 0%, #0044cc 100%);
+				color: white !important;
+				padding: 1rem 2rem;
+				border-radius: 12px;
+				font-weight: 800;
+				font-size: 1rem;
+				text-decoration: none;
+				box-shadow: 0 12px 30px rgba(0, 104, 255, 0.4);
+				transition: all 0.2s ease;
+				margin-top: 0.5rem;
+			}
+
+			.zalo-btn:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 16px 40px rgba(0, 104, 255, 0.5);
+				color: white;
+			}
+
+			/* Quick links */
+			.quick-links {
+				margin: 4rem 0 2rem;
+				text-align: center;
+			}
+
+			.quick-links h3 {
+				font-size: 0.825rem;
+				text-transform: uppercase;
+				letter-spacing: 0.2em;
+				color: var(--text-dim);
+				font-family: var(--font-mono);
+				font-weight: 600;
+				margin-bottom: 1.5rem;
+			}
+
+			.links-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+				gap: 0.75rem;
+				max-width: 720px;
+				margin: 0 auto;
+			}
+
+			.links-grid a {
+				display: block;
+				padding: 1rem 1.25rem;
+				background: var(--glass-bg);
+				border: 1px solid var(--glass-border);
+				border-radius: 12px;
+				color: var(--text);
+				transition: all 0.2s ease;
+				backdrop-filter: blur(10px);
+				font-weight: 500;
+				text-decoration: none;
+			}
+
+			.links-grid a:hover {
+				border-color: var(--accent);
+				background: var(--accent-glow);
+				color: var(--accent);
+				transform: translateY(-2px);
+			}
+
+			@media (min-width: 720px) {
+				.zalo-card {
+					flex-direction: row;
+					text-align: left;
+					align-items: center;
+					gap: 1.5rem;
+				}
+				.zalo-text {
+					flex: 1;
+				}
+				.zalo-btn {
+					margin-top: 0;
+					flex-shrink: 0;
+				}
+			}
+		</style>
+	</body>
+</html>
