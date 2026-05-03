@@ -2,7 +2,7 @@
 title: '3 đêm tôi không ngủ được — vì thầy Phạm Thành Long nhắc đến Claude'
 description: 'Sau 3 năm và hàng tỷ đồng học marketing & bán hàng từ những người giỏi nhất Việt Nam, tôi nhận ra: nếu áp dụng tư duy IPS của thầy Phạm Thành Long vào Claude AI — kết quả vượt qua giới hạn nhận thức của tôi. Đây là 3 đêm tôi đã thức trắng để kiểm chứng.'
 pubDate: '2026-05-03'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+heroImage: '../../assets/hero-3-dem-khong-ngu.png'
 ---
 
 3 đêm tôi không ngủ.

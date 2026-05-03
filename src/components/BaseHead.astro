@@ -11,6 +11,12 @@ interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description, image = '/og-image.png' } = Astro.props;
 const ogImageUrl = new URL(image, Astro.url);
+
+// Tracking IDs — set in Cloudflare Pages env vars (PUBLIC_ prefix exposes to client)
+const GA_ID = import.meta.env.PUBLIC_GA_ID || '';
+const FB_PIXEL_ID = import.meta.env.PUBLIC_FB_PIXEL_ID || '';
+const TIKTOK_PIXEL_ID = import.meta.env.PUBLIC_TIKTOK_PIXEL_ID || '';
+const GSC_VERIFY = import.meta.env.PUBLIC_GSC_VERIFY || '';
 ---
 
 <!-- Global Metadata -->
@@ -28,7 +34,10 @@ const ogImageUrl = new URL(image, Astro.url);
 />
 <meta name="generator" content={Astro.generator} />
 
-<!-- Preconnect to font CDN for faster loading -->
+<!-- Google Search Console verify -->
+{GSC_VERIFY && <meta name="google-site-verification" content={GSC_VERIFY} />}
+
+<!-- Preconnect -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -56,3 +65,40 @@ const ogImageUrl = new URL(image, Astro.url);
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={ogImageUrl} />
+
+<!-- Google Analytics 4 -->
+{GA_ID && (
+	<>
+		<script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} is:inline></script>
+		<script is:inline define:vars={{ GA_ID }}>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', GA_ID, { send_page_view: true });
+		</script>
+	</>
+)}
+
+<!-- Facebook Pixel -->
+{FB_PIXEL_ID && (
+	<script is:inline define:vars={{ FB_PIXEL_ID }}>
+		!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+		n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+		n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+		t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+		document,'script','https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', FB_PIXEL_ID);
+		fbq('track', 'PageView');
+	</script>
+)}
+
+<!-- TikTok Pixel -->
+{TIKTOK_PIXEL_ID && (
+	<script is:inline define:vars={{ TIKTOK_PIXEL_ID }}>
+		!function (w, d, t) {
+			w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+			ttq.load(TIKTOK_PIXEL_ID);
+			ttq.page();
+		}(window, document, 'ttq');
+	</script>
+)}
