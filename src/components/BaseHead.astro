@@ -68,6 +68,24 @@ const GSC_VERIFY = import.meta.env.PUBLIC_GSC_VERIFY || '';
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={ogImageUrl} />
 
+<!-- Schema.org Person — tells Google about Hoàn's social profiles -->
+<script type="application/ld+json" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "Person",
+	"name": "Trần Nguyên Hoàn",
+	"alternateName": "Hoàn Claude",
+	"url": "https://trannguyenhoan.com",
+	"image": new URL("/og-image.png", Astro.url).toString(),
+	"description": "Eagle thứ 59 — học trò Phạm Thành Long. Áp dụng tư duy marketing & bán hàng số 1 Việt Nam vào Claude AI để build bộ não vận hành doanh nghiệp.",
+	"jobTitle": "Founder — Bộ Não Vận Hành AI",
+	"sameAs": [
+		"https://www.youtube.com/@hoanclaude",
+		"https://www.tiktok.com/@hoanclaude",
+		"https://www.facebook.com/hoanclaude/",
+		"https://www.facebook.com/hoanclaudeprofile/"
+	]
+})} />
+
 <!-- Google Tag Manager (head) -->
 {GTM_ID && (
 	<script is:inline define:vars={{ GTM_ID }}>
