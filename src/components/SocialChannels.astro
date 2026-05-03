@@ -206,6 +206,9 @@ const channels = [
 					channel,
 				});
 			}
+			if (typeof (window as any).fbq === 'function') {
+				(window as any).fbq('trackCustom', 'SocialChannelClick', { channel });
+			}
 		});
 	});
 </script>

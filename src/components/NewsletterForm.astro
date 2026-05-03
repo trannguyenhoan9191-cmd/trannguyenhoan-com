@@ -108,6 +108,13 @@ const ZALO_URL = import.meta.env.PUBLIC_ZALO_GROUP_LV1 || 'https://zalo.me/g/s02
 							form_tag: tag,
 						});
 					}
+					// Fire Meta Pixel Lead event directly
+					if (typeof (window as any).fbq === 'function') {
+						(window as any).fbq('track', 'Lead', {
+							content_name: tag,
+							content_category: 'newsletter',
+						});
+					}
 
 					// Switch to success stage
 					formStage.hidden = true;
