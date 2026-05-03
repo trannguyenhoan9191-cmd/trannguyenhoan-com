@@ -33,6 +33,8 @@ Trung Ô Tô không chọn con đường xây dựng thương hiệu bằng hìn
 
 **2024:** Anh hoàn thành **2 cự ly Marathon 42km**. Đây không phải thông tin lifestyle — đây là dấu hiệu của **kỷ luật, sức bền và ý chí vượt giới hạn** mà anh áp dụng vào cả công việc và cuộc sống.
 
+![Trương Văn Trung tại sự kiện Marathon trong cộng đồng Eagle Camp — 2 cự ly 42km hoàn thành 2024, biểu tượng của kỷ luật và sức bền](../../assets/trung-marathon-eagle-camp.jpg)
+
 ## Trung Ô Tô làm gì cụ thể?
 
 Anh tập trung vào **dòng xe từ 4 đến 16 chỗ**, phục vụ 3 nhóm khách hàng rõ ràng:
@@ -95,6 +97,8 @@ Anh nói "không" với 100 khách = 100 quyết định, mỗi cái cần thờ
 Anh nói "không" với 1000 khách = không khả thi nếu chỉ có 1 anh + đội ngũ truyền thống.
 
 Đây chính là điểm mà **Claude AI bước vào** — không thay thế chữ tín, mà **scale chữ tín**.
+
+![Showroom ô tô tích hợp AI — minh họa cách Claude AI có thể vận hành cùng tư duy IPS đỉnh cao trong ngành xe hơi tại Việt Nam](../../assets/hero-truong-van-trung-eagle-ai.png)
 
 ### 5 cách Claude AI có thể giúp Trung Ô Tô (và bất kỳ Eagle nào ngành ô tô cũ)
 
