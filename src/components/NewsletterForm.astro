@@ -3,42 +3,82 @@ interface Props {
 	variant?: 'hero' | 'inline' | 'footer';
 	headline?: string;
 	subheadline?: string;
+	tag?: string;
 }
 
 const {
 	variant = 'inline',
 	headline = 'Nhận Bài Chẩn Đoán Bộ Não AI',
 	subheadline = 'Trong 5 phút, biết hệ thống AI bạn đang thiếu gì. Miễn phí.',
+	tag = 'newsletter-general',
 } = Astro.props;
+
+// Zalo group link — set in env (PUBLIC_ZALO_GROUP_LV1)
+const ZALO_URL = import.meta.env.PUBLIC_ZALO_GROUP_LV1 || '';
 ---
 
-<form class={`newsletter newsletter--${variant}`} data-newsletter>
-	<div class="newsletter-text">
-		<h3>{headline}</h3>
-		<p>{subheadline}</p>
+<form
+	class={`newsletter newsletter--${variant}`}
+	data-newsletter
+	data-tag={tag}
+	data-zalo={ZALO_URL}
+>
+	<div class="form-stage" data-stage="form">
+		<div class="newsletter-text">
+			<h3>{headline}</h3>
+			<p>{subheadline}</p>
+		</div>
+		<div class="newsletter-fields">
+			<input type="text" name="name" placeholder="Tên của bạn" required autocomplete="name" />
+			<input type="email" name="email" placeholder="Email" required autocomplete="email" />
+			<button type="submit">
+				<span class="btn-text">Nhận chẩn đoán →</span>
+				<span class="btn-loading" hidden>Đang gửi...</span>
+			</button>
+		</div>
+		<p class="newsletter-trust">
+			Tôi sẽ gửi cho bạn bản chẩn đoán + những bài viết hữu ích nhất. Hủy đăng ký bất kỳ lúc nào.
+		</p>
+		<p class="newsletter-msg" data-msg hidden></p>
 	</div>
-	<div class="newsletter-fields">
-		<input type="text" name="name" placeholder="Tên của bạn" required autocomplete="name" />
-		<input type="email" name="email" placeholder="Email" required autocomplete="email" />
-		<button type="submit">
-			<span class="btn-text">Nhận chẩn đoán →</span>
-			<span class="btn-loading" hidden>Đang gửi...</span>
-		</button>
+
+	<div class="success-stage" data-stage="success" hidden>
+		<div class="success-icon">✓</div>
+		<h3>Cảm ơn bạn đã đăng ký!</h3>
+		<p class="success-sub">
+			Bạn vừa được thêm vào danh sách. Email xác nhận đang trên đường đến hộp thư của bạn.
+		</p>
+		{ZALO_URL && (
+			<>
+				<div class="success-divider">
+					<span>Một bước nữa thôi</span>
+				</div>
+				<p class="zalo-prompt">
+					Vào <strong>nhóm Zalo Level 1</strong> để nhận content sớm + Q&A trực tiếp với tôi:
+				</p>
+				<a href={ZALO_URL} target="_blank" rel="noopener" class="zalo-btn" data-zalo-link>
+					<svg width="22" height="22" viewBox="0 0 48 48" fill="currentColor"><path d="M24 4C12.954 4 4 12.954 4 24c0 3.43.864 6.658 2.388 9.482L4 44l10.81-2.323A19.913 19.913 0 0 0 24 44c11.046 0 20-8.954 20-20S35.046 4 24 4zm-7.5 14h2.5l3 6 3-6h2.5v12h-2.5v-7.5L22.5 26h-1l-2.5-3.5V30h-2.5V18zm15 0h2.5v9.5h5V30h-7.5V18z"/></svg>
+					<span>Vào nhóm Zalo Level 1 →</span>
+				</a>
+				<p class="zalo-auto">Tự động chuyển sau <span data-countdown>5</span> giây...</p>
+			</>
+		)}
 	</div>
-	<p class="newsletter-trust">
-		Tôi sẽ gửi cho bạn bản chẩn đoán + những bài viết hữu ích nhất. Hủy đăng ký bất kỳ lúc nào.
-	</p>
-	<p class="newsletter-msg" data-msg hidden></p>
 </form>
 
 <script>
 	document.querySelectorAll<HTMLFormElement>('form[data-newsletter]').forEach((form) => {
+		const tag = form.dataset.tag || 'newsletter-general';
+		const zaloUrl = form.dataset.zalo || '';
+
 		form.addEventListener('submit', async (e) => {
 			e.preventDefault();
 			const btn = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
 			const btnText = btn.querySelector<HTMLElement>('.btn-text')!;
 			const btnLoad = btn.querySelector<HTMLElement>('.btn-loading')!;
 			const msgEl = form.querySelector<HTMLElement>('[data-msg]')!;
+			const formStage = form.querySelector<HTMLElement>('[data-stage="form"]')!;
+			const successStage = form.querySelector<HTMLElement>('[data-stage="success"]')!;
 
 			btn.disabled = true;
 			btnText.hidden = true;
@@ -49,6 +89,7 @@ const {
 			const payload = {
 				name: String(fd.get('name') || ''),
 				email: String(fd.get('email') || ''),
+				tag,
 			};
 
 			try {
@@ -60,16 +101,37 @@ const {
 				const data = await res.json().catch(() => ({}));
 
 				if (res.ok && data.ok) {
-					form.reset();
-					msgEl.textContent = '✓ Cảm ơn bạn! Kiểm tra email để nhận bản chẩn đoán.';
-					msgEl.className = 'newsletter-msg newsletter-msg--ok';
+					// Push GTM event
+					if (typeof (window as any).dataLayer !== 'undefined') {
+						(window as any).dataLayer.push({
+							event: 'newsletter_signup',
+							form_tag: tag,
+						});
+					}
+
+					// Switch to success stage
+					formStage.hidden = true;
+					successStage.hidden = false;
+
+					// Auto-redirect to Zalo group after 5s
+					if (zaloUrl) {
+						let count = 5;
+						const countdownEl = successStage.querySelector<HTMLElement>('[data-countdown]');
+						const timer = setInterval(() => {
+							count--;
+							if (countdownEl) countdownEl.textContent = String(count);
+							if (count <= 0) {
+								clearInterval(timer);
+								window.open(zaloUrl, '_blank');
+							}
+						}, 1000);
+					}
 				} else {
 					throw new Error(data.error || 'Có lỗi xảy ra. Thử lại nhé.');
 				}
 			} catch (err) {
 				msgEl.textContent = '✗ ' + (err instanceof Error ? err.message : 'Lỗi không xác định');
 				msgEl.className = 'newsletter-msg newsletter-msg--err';
-			} finally {
 				msgEl.hidden = false;
 				btn.disabled = false;
 				btnText.hidden = false;
@@ -181,16 +243,113 @@ const {
 		font-size: 0.875rem;
 	}
 
-	.newsletter-msg--ok {
-		background: rgba(16, 185, 129, 0.15);
-		color: #6ee7b7;
-		border: 1px solid rgba(16, 185, 129, 0.3);
-	}
-
 	.newsletter-msg--err {
 		background: rgba(239, 68, 68, 0.15);
 		color: #fca5a5;
 		border: 1px solid rgba(239, 68, 68, 0.3);
+	}
+
+	/* Success stage */
+	.success-stage {
+		padding: 1.5rem 0;
+	}
+
+	.success-icon {
+		width: 64px;
+		height: 64px;
+		margin: 0 auto 1rem;
+		background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 2rem;
+		color: white;
+		box-shadow: 0 12px 32px rgba(16, 185, 129, 0.3);
+		animation: pop 0.5s ease-out;
+	}
+
+	@keyframes pop {
+		0% { transform: scale(0); }
+		60% { transform: scale(1.1); }
+		100% { transform: scale(1); }
+	}
+
+	.success-stage h3 {
+		font-size: 1.5rem;
+		color: var(--text);
+		margin: 0 0 0.5rem;
+	}
+
+	.success-sub {
+		color: var(--text-muted);
+		margin: 0 0 1.5rem;
+		font-size: 0.95rem;
+	}
+
+	.success-divider {
+		position: relative;
+		text-align: center;
+		margin: 1.5rem 0 1rem;
+	}
+
+	.success-divider::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+		height: 1px;
+		background: var(--glass-border);
+	}
+
+	.success-divider span {
+		position: relative;
+		background: var(--glass-bg);
+		padding: 0 1rem;
+		color: var(--accent);
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		font-family: var(--font-mono);
+		font-weight: 600;
+	}
+
+	.zalo-prompt {
+		color: var(--text-muted);
+		font-size: 0.95rem;
+		margin: 0 0 1rem;
+	}
+
+	.zalo-prompt strong {
+		color: var(--text);
+	}
+
+	.zalo-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.6rem;
+		background: linear-gradient(135deg, #0068ff 0%, #0044cc 100%);
+		color: white !important;
+		padding: 1rem 1.75rem;
+		border-radius: 12px;
+		font-weight: 700;
+		font-size: 1rem;
+		text-decoration: none;
+		transition: all 0.2s ease;
+		box-shadow: 0 12px 30px rgba(0, 104, 255, 0.4);
+	}
+
+	.zalo-btn:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 16px 40px rgba(0, 104, 255, 0.5);
+	}
+
+	.zalo-auto {
+		font-size: 0.8rem;
+		color: var(--text-dim);
+		margin: 1rem 0 0;
+		font-family: var(--font-mono);
 	}
 
 	@media (min-width: 540px) {

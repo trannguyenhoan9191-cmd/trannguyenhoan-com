@@ -266,8 +266,24 @@ import GtmBody from '../components/GtmBody.astro';
 
 					if (res.ok && data.ok) {
 						form.reset();
-						msgEl.textContent = '✓ Cảm ơn bạn! Email xác nhận + Zoom link đang được gửi đến hộp thư của bạn (kiểm tra cả Spam).';
+
+						// GTM event tracking
+						if (typeof (window as any).dataLayer !== 'undefined') {
+							(window as any).dataLayer.push({
+								event: 'workshop_signup',
+								form_tag: 'workshop-bonao-ai',
+							});
+						}
+
+						const zaloUrl = (import.meta as any).env?.PUBLIC_ZALO_GROUP_LV1 || '';
+						msgEl.innerHTML = '✓ Cảm ơn bạn! Email xác nhận + Zoom link đang được gửi đến hộp thư của bạn.' +
+							(zaloUrl ? '<br/><br/><a href="' + zaloUrl + '" target="_blank" rel="noopener" style="display:inline-flex;gap:0.5rem;align-items:center;background:linear-gradient(135deg,#0068ff,#0044cc);color:white;padding:0.875rem 1.5rem;border-radius:10px;font-weight:700;text-decoration:none;margin-top:0.5rem;">Vào nhóm Zalo Level 1 →</a>' : '');
 						msgEl.className = 'form-msg ok';
+
+						// Auto-redirect to Zalo group after 4s
+						if (zaloUrl) {
+							setTimeout(() => window.open(zaloUrl, '_blank'), 4000);
+						}
 					} else {
 						throw new Error(data.error || 'Có lỗi xảy ra. Thử lại nhé.');
 					}
