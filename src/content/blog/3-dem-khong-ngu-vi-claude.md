@@ -11,15 +11,19 @@ Không phải vì tôi không mệt.
 
 Mà vì tôi nhìn ra thứ gì đó — và tôi không thể nhắm mắt lại được.
 
-## Tôi từng vào IPS thứ 12 — và bỏ ngay sau 1 ngày
+## Tôi đã học liên tiếp 5 khóa IPS với thầy Phạm Thành Long
 
-Trước khi viết những dòng này, tôi muốn bạn biết một sự thật: tôi từng vào lớp IPS thứ 12 của thầy [Phạm Thành Long](https://long.vn/pham-thanh-long-la-ai/) — và **tôi bỏ chỉ sau đúng một ngày.**
+Trước khi viết những dòng này, tôi muốn bạn biết một sự thật: tôi học **liên tiếp 5 khóa IPS** với thầy [Phạm Thành Long](https://long.vn/pham-thanh-long-la-ai/) — IPS 11, 12, 13, 14, và 15.
 
-Lý do? Tôi sợ.
+Mỗi khóa, tôi kẹt ở một giai đoạn khác nhau:
 
-Tôi sợ không thể theo được. Sợ không thể làm được. Cả đời tôi làm kinh doanh truyền thống — bước sang lĩnh vực kinh doanh online, mọi thứ quá lạ lẫm. Tôi gần như **không có gì cả**. Tất cả chỉ là điểm xuất phát.
+- **IPS 11:** Thấy rất hay, nghĩ mình làm được. Học xong về, *không biết bắt đầu từ đâu.*
+- **IPS 12:** Hiểu hơn 1 chút. Về nhà bắt đầu làm 1 chút. *Không có kết quả → bỏ giữa.*
+- **IPS 13:** Cũng học, về nhà làm. *Không có định hướng rõ ràng → bỏ tiếp.*
+- **IPS 14:** Biết hết cơ bản. *Chưa thực sự làm — trì hoãn.*
+- **IPS 15:** Mới đây — và đây là khóa thay đổi mọi thứ.
 
-3 năm sau đó, tôi đổ hàng tỷ đồng vào tất cả những khóa học đắt nhất Việt Nam về marketing, bán hàng, xây dựng hệ thống. Tôi học từ những người giỏi nhất. Tôi áp dụng. Tôi thất bại. Tôi học lại. Tôi cải thiện.
+3 năm và hàng tỷ đồng. Tôi học từ những người giỏi nhất. Tôi áp dụng. Tôi thất bại. Tôi học lại.
 
 Cái gì tôi cũng biết. Cái gì tôi cũng hay.
 
@@ -27,7 +31,7 @@ Cái gì tôi cũng biết. Cái gì tôi cũng hay.
 
 Đây có thể là điều bạn cũng đang trải qua. Học rất nhiều. Biết rất nhiều. Nhưng làm thì lại lúng túng. Áp dụng thì rời rạc. Hệ thống thì không có.
 
-Tôi đã ở đó.
+Tôi đã ở đó — qua 4 khóa IPS liên tiếp.
 
 ## Khoảnh khắc thầy Phạm Thành Long nhắc đến Claude
 
