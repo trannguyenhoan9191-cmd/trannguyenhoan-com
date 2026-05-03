@@ -1,59 +1,217 @@
 ---
+import { Image } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import SocialChannels from '../components/SocialChannels.astro';
 import GtmBody from '../components/GtmBody.astro';
+import portraitImg from '../assets/hoan-portrait.jpg';
+import cyclingImg from '../assets/hoan-cycling.jpg';
+import expoImg from '../assets/hoan-tech-expo.jpg';
+import monumentImg from '../assets/hoan-eagle-monument.jpg';
+import siberianImg from '../assets/hoan-trans-siberian.jpg';
 ---
 
 <!doctype html>
 <html lang="vi">
 	<head>
-		<BaseHead title="Về tôi" description="Trần Nguyên Hoàn — Tôi tin người Việt kinh doanh không nên bị bỏ lại phía sau bởi công nghệ AI." />
+		<BaseHead
+			title="Trần Nguyên Hoàn Là Ai? Eagle thứ 59 — Founder Bộ Não Vận Hành AI"
+			description="Trần Nguyên Hoàn — Eagle thứ 59 trong cộng đồng IPS Phạm Thành Long. Học liên tiếp 5 khóa IPS 11→15. Founder Bộ Não Vận Hành AI cho chủ shop, freelancer, SME Việt Nam."
+		/>
 	</head>
 	<body>
 		<GtmBody />
 		<Header />
 		<main>
+			<!-- HERO -->
 			<section class="about-hero">
-				<div class="badge">
-					<span>◆ Về tôi</span>
+				<div class="hero-grid">
+					<div class="hero-text">
+						<div class="badge">
+							<span>◆ Về tôi</span>
+						</div>
+						<h1>Trần Nguyên Hoàn</h1>
+						<p class="lead">
+							<strong>Eagle thứ 59</strong> trong cộng đồng IPS Phạm Thành Long.
+							Founder <a href="/blog">Bộ Não Vận Hành AI</a> — combo tư duy marketing & bán hàng số 1 Việt Nam + Claude AI.
+						</p>
+						<div class="hero-tags">
+							<span class="tag">Eagle Camp IPS15</span>
+							<span class="tag">5 khóa IPS</span>
+							<span class="tag">Claude + Obsidian</span>
+						</div>
+					</div>
+					<div class="hero-image">
+						<Image src={portraitImg} alt="Chân dung Trần Nguyên Hoàn — Founder Bộ Não Vận Hành AI" widths={[400, 600, 800]} loading="eager" fetchpriority="high" />
+					</div>
 				</div>
-				<h1>Trần Nguyên Hoàn</h1>
-				<p class="lead">
-					Tôi xây bộ não AI vận hành cho chính mình — và viết lại hành trình đó để chủ shop, freelancer, SME Việt Nam có thể làm cùng.
-				</p>
 			</section>
 
+			<!-- SOCIAL CHANNELS -->
 			<SocialChannels heading="Theo dõi Hoàn" subheading="Tôi đăng nội dung khác nhau trên mỗi kênh" compact={true} />
 
+			<!-- WHY -->
 			<section class="why-card">
-				<div class="why-label">WHY của tôi</div>
+				<div class="why-label">WHY CỦA TÔI</div>
 				<p class="why-text">
 					Tôi tin rằng <span class="highlight">người Việt kinh doanh không nên bị bỏ lại phía sau bởi công nghệ AI</span> — chỉ vì họ không có đội ngũ kỹ thuật hay ngân sách lớn.
 				</p>
 			</section>
 
-			<section class="story">
-				<h2>Hành trình của tôi</h2>
+			<!-- 5 KHÓA IPS -->
+			<section class="ips-journey">
+				<div class="section-label">HÀNH TRÌNH 5 KHÓA IPS</div>
+				<h2>5 khóa IPS với thầy Phạm Thành Long — và 4 lần thất bại khác kiểu</h2>
+				<p class="section-sub">
+					Tôi học liên tiếp <strong>IPS 11, 12, 13, 14, 15</strong> với thầy <a href="https://long.vn/pham-thanh-long-la-ai/" target="_blank" rel="noopener">Phạm Thành Long</a>. Mỗi khóa kẹt ở một giai đoạn khác.
+				</p>
 
-				<p>Tôi đã từng là người <strong>học rất nhiều</strong> nhưng <strong>làm được rất ít</strong>.</p>
+				<div class="ips-timeline">
+					<div class="ips-item">
+						<div class="ips-num">11</div>
+						<div class="ips-content">
+							<h3>IPS 11 — Không biết bắt đầu từ đâu</h3>
+							<p>Thấy rất hay, nghĩ mình làm được. Thực tế sau khi học về: ngồi trước laptop không biết bước 1 là gì.</p>
+						</div>
+					</div>
+					<div class="ips-item">
+						<div class="ips-num">12</div>
+						<div class="ips-content">
+							<h3>IPS 12 — Làm rồi không có kết quả</h3>
+							<p>Hiểu hơn 1 chút, bắt đầu làm. Setup fanpage, viết post, chạy ads test — kết quả 0. Bỏ giữa.</p>
+						</div>
+					</div>
+					<div class="ips-item">
+						<div class="ips-num">13</div>
+						<div class="ips-content">
+							<h3>IPS 13 — Học không có định hướng</h3>
+							<p>Cũng học, về nhà làm. Nhưng không có điểm tựa rõ ràng — sản phẩm, audience, USP đều mơ hồ. Bỏ tiếp.</p>
+						</div>
+					</div>
+					<div class="ips-item">
+						<div class="ips-num">14</div>
+						<div class="ips-content">
+							<h3>IPS 14 — Biết hết mà trì hoãn</h3>
+							<p>Thuộc 19 bước IPS, hiểu 5 Way, đọc 30 Tuyệt Chiêu lần thứ 5. Mỗi sáng list 10 việc, tối làm được 0. Lượng việc quá tải đầu óc.</p>
+						</div>
+					</div>
+					<div class="ips-item highlight-ips">
+						<div class="ips-num">15</div>
+						<div class="ips-content">
+							<h3>IPS 15 — Eagle Camp + Claude + Obsidian = breakthrough</h3>
+							<p>Khóa Eagle Camp với 58 Eagle khác. Thầy nhắc <strong>Claude AI</strong> + <strong>Obsidian</strong>. Tôi build bộ não thứ hai. Lần đầu trong 4 năm — không loay hoay nữa.</p>
+						</div>
+					</div>
+				</div>
 
-				<p>Mỗi khóa học mới đều có vẻ là chìa khóa. Học xong lại loay hoay. Quay lại thực tế kinh doanh — vẫn cảm giác mất kiểm soát.</p>
-
-				<p>Một đêm 2 giờ sáng, người thầy của tôi — <strong>Phạm Thành Long</strong> — gọi và nói: <em>"Mày phải gặp Claude."</em></p>
-
-				<p>Đó là bước ngoặt. Claude không phải bot trả lời. Nó là <strong>một bộ não</strong> — và cái khác biệt lớn nhất: tôi có thể đưa <span class="highlight">data thật</span> của mình cho nó đọc.</p>
-
-				<p>Sau vài tháng, tôi xây được bộ não AI vận hành cho chính mình. Marketing chạy bằng data. Không còn may rủi.</p>
-
-				<p>Và tôi quyết định: chia sẻ lại tất cả.</p>
+				<a href="/blog/5-khoa-ips-pham-thanh-long-58-con-nguoi/" class="read-more">Đọc full hành trình →</a>
 			</section>
 
+			<!-- BỘ NÃO AI -->
+			<section class="product-section">
+				<div class="section-label">SẢN PHẨM</div>
+				<h2>Bộ Não Vận Hành AI</h2>
+				<p class="section-sub">Marketing chạy bằng data, không còn may rủi.</p>
+
+				<div class="layers">
+					<div class="layer-card">
+						<div class="layer-num">Lớp 1</div>
+						<h4>Dữ liệu</h4>
+						<p>Supermetrics kéo data từ Meta, TikTok, Google, Shopee về 1 chỗ.</p>
+					</div>
+					<div class="layer-card">
+						<div class="layer-num">Lớp 2</div>
+						<h4>Bộ não</h4>
+						<p>Obsidian vault chứa data, customer profile, campaign log, insight.</p>
+					</div>
+					<div class="layer-card">
+						<div class="layer-num">Lớp 3</div>
+						<h4>Xử lý</h4>
+						<p>Claude LLM đọc bộ não, phân tích, đưa quyết định.</p>
+					</div>
+					<div class="layer-card">
+						<div class="layer-num">Lớp 4</div>
+						<h4>Hành động</h4>
+						<p>Quyết định cụ thể, đo được — không cảm tính.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- VALUE LADDER -->
+			<section class="ladder-section">
+				<div class="section-label">VALUE LADDER 6 TIER</div>
+				<h2>Khóa học của tôi</h2>
+
+				<div class="ladder">
+					<div class="tier"><span class="tier-name">STARTER</span><span class="tier-price">247.000đ</span></div>
+					<div class="tier"><span class="tier-name">Tripwire — Setup vault 60 phút</span><span class="tier-price">497.000đ</span></div>
+					<div class="tier featured"><span class="tier-name">OPERATOR — Bộ Não AI 30 ngày</span><span class="tier-price">9.970.000đ</span><span class="tier-badge">CORE</span></div>
+					<div class="tier"><span class="tier-name">MARKETER</span><span class="tier-price">24.970.000đ</span></div>
+					<div class="tier"><span class="tier-name">ENTERPRISE — Done-With-You 90 ngày</span><span class="tier-price">49.970.000đ</span></div>
+					<div class="tier"><span class="tier-name">EMPIRE</span><span class="tier-price">199.970.000đ</span></div>
+				</div>
+
+				<a href="/workshop" class="cta-soft">Bắt đầu với Workshop miễn phí 90 phút →</a>
+			</section>
+
+			<!-- CUSTOMER -->
+			<section class="customer-section">
+				<div class="section-label">ĐỐI TƯỢNG</div>
+				<h2>Tôi viết cho ai?</h2>
+				<p class="section-sub">
+					<strong>Chủ shop / Freelancer / SME Việt Nam</strong> — doanh thu 30tr-500tr/tháng, đã chạy ads ≥3 tháng, sẵn sàng dành 30 phút/ngày × 30 ngày để build hệ thống.
+				</p>
+
+				<div class="emotion-layers">
+					<div class="emotion">
+						<div class="emotion-tag">Bề mặt</div>
+						<p>"Doanh thu chững"</p>
+					</div>
+					<div class="emotion">
+						<div class="emotion-tag">Sâu hơn</div>
+						<p>"Đốt tiền ads không hiệu quả"</p>
+					</div>
+					<div class="emotion deep">
+						<div class="emotion-tag">Sâu nhất</div>
+						<p>"Đang làm tất cả mà vẫn cảm thấy mất kiểm soát — không biết tháng sau có còn đủ tiền cover lương nhân viên không"</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- LIFE -->
+			<section class="life-section">
+				<div class="section-label">CUỘC SỐNG</div>
+				<h2>Ngoài công việc</h2>
+
+				<div class="life-grid">
+					<div class="life-item">
+						<Image src={cyclingImg} alt="Hoàn tập xe đạp X-TIGER trong nhà — kỷ luật và sức bền cá nhân" widths={[400, 600]} />
+						<p><strong>Đam mê thể thao</strong> — đặc biệt cycling và chạy bộ. Kỷ luật thân thể giúp tôi giữ được tinh thần khi build hệ thống AI dài hạn.</p>
+					</div>
+					<div class="life-item">
+						<Image src={expoImg} alt="Hoàn tham gia expo công nghệ — luôn tìm hiểu công cụ mới nâng cấp hệ thống" widths={[400, 600]} />
+						<p><strong>Luôn học công nghệ mới</strong> — tham gia expo, đọc paper, thử mọi tool có thể nâng cấp bộ não AI.</p>
+					</div>
+					<div class="life-item">
+						<Image src={monumentImg} alt="Cộng đồng Eagle Camp — 58 Eagle cùng học IPS 15 với thầy Phạm Thành Long" widths={[400, 600]} />
+						<p><strong>Cộng đồng Eagle Camp</strong> — 58 Eagle bạn học IPS15 từ nhiều ngành: y khoa, fashion, ô tô, dinh dưỡng, F&B, mỹ phẩm, dược, giáo dục.</p>
+					</div>
+					<div class="life-item">
+						<Image src={siberianImg} alt="Eagle Camp caravan Trans-Siberian Hà Nội-Moscow — không chỉ học, còn cùng nhau trải nghiệm" widths={[400, 600]} />
+						<p><strong>Trải nghiệm cùng cộng đồng</strong> — caravan Trans-Siberian Hà Nội-Moscow là 1 trong nhiều chuyến đi cùng Eagle Camp. Học không chỉ trong phòng.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- FINAL CTA -->
 			<section class="cta-final">
 				<h2>Bạn có cùng tôi không?</h2>
 				<p>Nếu bạn đang loay hoay với data marketing lúc 2 giờ sáng — bạn không một mình.</p>
-				<a href="/blog" class="btn-primary">Đọc blog →</a>
+				<div class="cta-buttons">
+					<a href="/workshop" class="btn-primary">Đăng ký Workshop miễn phí →</a>
+					<a href="/blog" class="btn-secondary">Đọc blog</a>
+				</div>
 			</section>
 		</main>
 		<Footer />
@@ -61,9 +219,18 @@ import GtmBody from '../components/GtmBody.astro';
 </html>
 
 <style>
+	main { max-width: var(--max-width-wide); }
+
+	/* HERO */
 	.about-hero {
-		text-align: center;
-		padding: 4rem 0 2rem;
+		padding: 3rem 0 2rem;
+	}
+
+	.hero-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2rem;
+		align-items: center;
 	}
 
 	.badge {
@@ -80,7 +247,7 @@ import GtmBody from '../components/GtmBody.astro';
 	}
 
 	.about-hero h1 {
-		font-size: clamp(2.5rem, 5vw, 3.5rem);
+		font-size: clamp(2.25rem, 5vw, 3.25rem);
 		font-weight: 800;
 		letter-spacing: -0.03em;
 		margin: 0 0 1rem;
@@ -88,13 +255,44 @@ import GtmBody from '../components/GtmBody.astro';
 	}
 
 	.lead {
-		font-size: 1.15rem;
+		font-size: 1.1rem;
 		color: var(--text-muted);
-		max-width: 580px;
-		margin: 0 auto;
 		line-height: 1.7;
+		margin: 0 0 1.25rem;
 	}
 
+	.hero-tags {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.tag {
+		display: inline-block;
+		padding: 0.35rem 0.75rem;
+		background: var(--accent-glow);
+		border: 1px solid rgba(251, 191, 36, 0.3);
+		color: var(--accent);
+		border-radius: 100px;
+		font-size: 0.75rem;
+		font-family: var(--font-mono);
+		font-weight: 600;
+	}
+
+	.hero-image {
+		border-radius: 20px;
+		overflow: hidden;
+		border: 1px solid var(--glass-border);
+		box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+	}
+
+	.hero-image :global(img) {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	/* WHY */
 	.why-card {
 		background: var(--glass-bg);
 		border: 1px solid var(--glass-border);
@@ -128,43 +326,326 @@ import GtmBody from '../components/GtmBody.astro';
 		font-weight: 700;
 	}
 
-	.story {
+	/* SECTION COMMON */
+	.section-label {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		color: var(--accent);
+		font-family: var(--font-mono);
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 0.75rem;
+	}
+
+	main h2 {
+		text-align: center;
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		margin: 0 0 1rem;
+	}
+
+	.section-sub {
+		text-align: center;
+		color: var(--text-muted);
+		max-width: 620px;
+		margin: 0 auto 2rem;
+		font-size: 1rem;
+		line-height: 1.7;
+	}
+
+	/* IPS Journey */
+	.ips-journey {
 		margin: 4rem 0;
 	}
 
-	.story h2 {
-		font-size: 0.825rem;
-		text-transform: uppercase;
-		letter-spacing: 0.15em;
-		color: var(--text-dim);
-		font-weight: 600;
-		margin-bottom: 1.5rem;
+	.ips-timeline {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		max-width: 760px;
+		margin: 2rem auto 1.5rem;
+	}
+
+	.ips-item {
+		display: flex;
+		gap: 1.25rem;
+		padding: 1.25rem 1.5rem;
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+		border-radius: 16px;
+		backdrop-filter: blur(10px);
+		transition: all 0.2s ease;
+	}
+
+	.ips-item:hover {
+		border-color: var(--glass-border-hover);
+		transform: translateX(4px);
+	}
+
+	.ips-item.highlight-ips {
+		background: linear-gradient(135deg, var(--accent-glow), rgba(251, 191, 36, 0.05));
+		border-color: rgba(251, 191, 36, 0.4);
+		box-shadow: 0 12px 40px var(--accent-shadow);
+	}
+
+	.ips-num {
+		flex-shrink: 0;
+		width: 48px;
+		height: 48px;
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid var(--glass-border);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		font-family: var(--font-mono);
+		font-weight: 800;
+		color: var(--accent);
 	}
 
-	.story p {
-		font-size: 1.05rem;
-		line-height: 1.85;
-		color: var(--text-muted);
+	.highlight-ips .ips-num {
+		background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+		color: var(--bg-from);
+		border-color: var(--accent);
 	}
 
-	.story p strong {
+	.ips-content h3 {
+		font-size: 1rem;
+		margin: 0 0 0.4rem;
 		color: var(--text);
 	}
 
+	.ips-content p {
+		color: var(--text-muted);
+		margin: 0;
+		font-size: 0.9rem;
+		line-height: 1.5;
+	}
+
+	.read-more {
+		display: block;
+		text-align: center;
+		color: var(--accent);
+		font-weight: 600;
+		margin-top: 1rem;
+	}
+
+	/* Product layers */
+	.product-section {
+		margin: 4rem 0;
+	}
+
+	.layers {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1rem;
+		margin-top: 2rem;
+	}
+
+	.layer-card {
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+		border-radius: 16px;
+		padding: 1.5rem;
+		backdrop-filter: blur(10px);
+	}
+
+	.layer-num {
+		font-size: 0.75rem;
+		font-family: var(--font-mono);
+		color: var(--accent);
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		margin-bottom: 0.5rem;
+	}
+
+	.layer-card h4 {
+		font-size: 1.15rem;
+		margin: 0 0 0.5rem;
+		color: var(--text);
+	}
+
+	.layer-card p {
+		color: var(--text-muted);
+		font-size: 0.9rem;
+		margin: 0;
+		line-height: 1.5;
+	}
+
+	/* Value Ladder */
+	.ladder-section {
+		margin: 4rem 0;
+	}
+
+	.ladder {
+		max-width: 580px;
+		margin: 2rem auto;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.tier {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem 1.25rem;
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+		border-radius: 12px;
+		backdrop-filter: blur(10px);
+		font-size: 0.95rem;
+	}
+
+	.tier.featured {
+		background: linear-gradient(135deg, var(--accent-glow), rgba(251, 191, 36, 0.05));
+		border-color: rgba(251, 191, 36, 0.4);
+		position: relative;
+	}
+
+	.tier-name {
+		color: var(--text);
+		font-weight: 600;
+	}
+
+	.tier-price {
+		color: var(--accent);
+		font-family: var(--font-mono);
+		font-weight: 700;
+	}
+
+	.tier-badge {
+		position: absolute;
+		top: -8px;
+		right: 12px;
+		font-size: 0.65rem;
+		background: var(--accent);
+		color: var(--bg-from);
+		padding: 0.15rem 0.5rem;
+		border-radius: 100px;
+		font-family: var(--font-mono);
+		font-weight: 800;
+		letter-spacing: 0.1em;
+	}
+
+	.cta-soft {
+		display: block;
+		text-align: center;
+		color: var(--accent);
+		font-weight: 700;
+		margin-top: 1.5rem;
+		font-size: 1rem;
+	}
+
+	/* Customer */
+	.customer-section {
+		margin: 4rem 0;
+	}
+
+	.emotion-layers {
+		max-width: 640px;
+		margin: 2rem auto 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.625rem;
+	}
+
+	.emotion {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+		padding: 1rem 1.25rem;
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+		border-radius: 12px;
+		backdrop-filter: blur(10px);
+	}
+
+	.emotion.deep {
+		background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.03));
+		border-color: rgba(239, 68, 68, 0.3);
+	}
+
+	.emotion-tag {
+		flex-shrink: 0;
+		width: 90px;
+		font-family: var(--font-mono);
+		font-size: 0.7rem;
+		text-transform: uppercase;
+		color: var(--accent);
+		letter-spacing: 0.1em;
+		font-weight: 700;
+	}
+
+	.emotion.deep .emotion-tag {
+		color: #fca5a5;
+	}
+
+	.emotion p {
+		margin: 0;
+		color: var(--text);
+		font-size: 0.95rem;
+		line-height: 1.5;
+	}
+
+	.emotion.deep p {
+		font-style: italic;
+	}
+
+	/* Life */
+	.life-section {
+		margin: 4rem 0;
+	}
+
+	.life-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+		margin-top: 2rem;
+	}
+
+	.life-item {
+		background: var(--glass-bg);
+		border: 1px solid var(--glass-border);
+		border-radius: 16px;
+		overflow: hidden;
+		backdrop-filter: blur(10px);
+	}
+
+	.life-item :global(img) {
+		display: block;
+		width: 100%;
+		height: 240px;
+		object-fit: cover;
+	}
+
+	.life-item p {
+		padding: 1.25rem 1.5rem;
+		color: var(--text-muted);
+		margin: 0;
+		font-size: 0.95rem;
+		line-height: 1.6;
+	}
+
+	.life-item p strong {
+		color: var(--text);
+	}
+
+	/* Final CTA */
 	.cta-final {
 		text-align: center;
 		padding: 3rem 1.5rem;
 		background: var(--glass-bg);
 		border: 1px solid var(--glass-border);
 		border-radius: 20px;
-		margin: 3rem 0;
+		margin: 4rem 0 3rem;
 		backdrop-filter: blur(10px);
 	}
 
 	.cta-final h2 {
-		font-size: 1.75rem;
-		margin: 0 0 1rem;
+		margin-bottom: 0.75rem;
 	}
 
 	.cta-final p {
@@ -172,109 +653,55 @@ import GtmBody from '../components/GtmBody.astro';
 		margin-bottom: 1.5rem;
 	}
 
-	.btn-primary {
+	.cta-buttons {
+		display: flex;
+		gap: 0.75rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.btn-primary, .btn-secondary {
 		display: inline-flex;
 		align-items: center;
 		padding: 0.875rem 1.75rem;
-		background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-		color: var(--bg-from);
 		border-radius: 12px;
 		font-weight: 600;
 		font-size: 0.95rem;
 		transition: all 0.2s ease;
+		border: 1px solid transparent;
+	}
+
+	.btn-primary {
+		background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+		color: var(--bg-from);
 		box-shadow: 0 10px 30px var(--accent-shadow);
 	}
 
 	.btn-primary:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 15px 40px var(--accent-shadow);
 		color: var(--bg-from);
 	}
 
-	/* Connect grid */
-	.connect-grid {
-		margin: 4rem 0 3rem;
-		text-align: center;
-	}
-
-	.connect-grid h2 {
-		font-size: 1.75rem;
-		margin: 0.5rem 0 0.75rem;
-	}
-
-	.connect-sub {
-		color: var(--text-muted);
-		max-width: 480px;
-		margin: 0 auto 2rem;
-		font-size: 0.95rem;
-	}
-
-	.channels {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-		gap: 1rem;
-	}
-
-	.channel {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 0.5rem;
-		padding: 1.5rem 1.25rem;
+	.btn-secondary {
 		background: var(--glass-bg);
-		border: 1px solid var(--glass-border);
-		border-radius: 16px;
 		color: var(--text);
-		transition: all 0.2s ease;
-		backdrop-filter: blur(10px);
+		border-color: var(--glass-border);
 	}
 
-	.channel:hover {
-		transform: translateY(-3px);
+	.btn-secondary:hover {
+		background: var(--glass-bg-hover);
 		color: var(--text);
 	}
 
-	.channel.youtube:hover {
-		border-color: #ff0000;
-		background: linear-gradient(135deg, rgba(255, 0, 0, 0.15), rgba(255, 0, 0, 0.05));
-	}
-	.channel.youtube svg { color: #ff0000; }
-
-	.channel.tiktok:hover {
-		border-color: #ee1d52;
-		background: linear-gradient(135deg, rgba(238, 29, 82, 0.15), rgba(37, 244, 238, 0.05));
-	}
-	.channel.tiktok svg { color: #ffffff; }
-
-	.channel.facebook:hover,
-	.channel.facebook-personal:hover {
-		border-color: #1877f2;
-		background: linear-gradient(135deg, rgba(24, 119, 242, 0.15), rgba(24, 119, 242, 0.05));
-	}
-	.channel.facebook svg,
-	.channel.facebook-personal svg { color: #1877f2; }
-
-	.channel-name {
-		font-weight: 700;
-		font-size: 1rem;
-		color: var(--text);
-	}
-
-	.channel-handle {
-		font-size: 0.85rem;
-		color: var(--accent);
-		font-family: var(--font-mono);
-	}
-
-	.channel-desc {
-		font-size: 0.8rem;
-		color: var(--text-muted);
-		margin-top: 0.25rem;
-	}
-
+	/* Responsive */
 	@media (min-width: 720px) {
-		.channels {
-			grid-template-columns: repeat(4, 1fr);
+		.hero-grid {
+			grid-template-columns: 1.2fr 0.8fr;
+			gap: 3rem;
+		}
+
+		.life-grid {
+			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 </style>
