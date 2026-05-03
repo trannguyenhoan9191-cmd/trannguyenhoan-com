@@ -13,8 +13,8 @@ const {
 	tag = 'newsletter-general',
 } = Astro.props;
 
-// Zalo group link — set in env (PUBLIC_ZALO_GROUP_LV1)
-const ZALO_URL = import.meta.env.PUBLIC_ZALO_GROUP_LV1 || '';
+// Zalo group link — fallback to hardcoded if env not set
+const ZALO_URL = import.meta.env.PUBLIC_ZALO_GROUP_LV1 || 'https://zalo.me/g/s02w01qlfivubguyx6b3';
 ---
 
 <form

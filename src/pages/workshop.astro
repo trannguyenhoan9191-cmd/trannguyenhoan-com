@@ -275,7 +275,7 @@ import GtmBody from '../components/GtmBody.astro';
 							});
 						}
 
-						const zaloUrl = (import.meta as any).env?.PUBLIC_ZALO_GROUP_LV1 || '';
+						const zaloUrl = (import.meta as any).env?.PUBLIC_ZALO_GROUP_LV1 || 'https://zalo.me/g/s02w01qlfivubguyx6b3';
 						msgEl.innerHTML = '✓ Cảm ơn bạn! Email xác nhận + Zoom link đang được gửi đến hộp thư của bạn.' +
 							(zaloUrl ? '<br/><br/><a href="' + zaloUrl + '" target="_blank" rel="noopener" style="display:inline-flex;gap:0.5rem;align-items:center;background:linear-gradient(135deg,#0068ff,#0044cc);color:white;padding:0.875rem 1.5rem;border-radius:10px;font-weight:700;text-decoration:none;margin-top:0.5rem;">Vào nhóm Zalo Level 1 →</a>' : '');
 						msgEl.className = 'form-msg ok';
