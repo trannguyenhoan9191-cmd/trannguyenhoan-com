@@ -143,9 +143,17 @@ Tôi không cường điệu. Tôi đang nói theo những gì tôi vừa chứn
 
 [**Đăng ký workshop tiếp theo tại đây**](/workshop) — em đang sắp xếp lịch trong tuần này. Số chỗ giới hạn vì tôi muốn đảm bảo Q&A được trả lời cho từng người.
 
+## Tại sao thầy Phạm Thành Long là người đầu tiên tôi nghe khi nhắc đến Claude
+
+Có một sự thật tôi muốn chia sẻ: tôi không tự khám phá ra Claude. Người đầu tiên gợi ý cho tôi là **[thầy Phạm Thành Long](https://long.vn/pham-thanh-long-la-ai/)** — chuyên gia số 1 Việt Nam về marketing và bán hàng, người đã đào tạo tôi qua [5 khóa IPS liên tiếp](/blog/5-khoa-ips-pham-thanh-long-58-con-nguoi/).
+
+Nếu thầy không nhắc, tôi vẫn đang loay hoay. Nếu tôi không có 4 năm tư duy IPS từ thầy đặt nền — Claude với tôi cũng chỉ là 1 chatbot generic.
+
+Combo "tư duy đỉnh cao + AI mạnh" này — tôi tin là combo khủng khiếp nhất 2026 mà chưa ai trong cộng đồng Eagle khai thác đến tận cùng. Bạn có thể đọc thêm về [đêm tôi đầu tiên gặp Claude tại đây](/blog/3-dem-khong-ngu-vi-claude/), hoặc xem [hành trình 5 khóa IPS của tôi](/blog/5-khoa-ips-pham-thanh-long-58-con-nguoi/).
+
 ---
 
-Cảm ơn 50+ người đã ngồi đến 2h sáng cùng tôi tối qua. Tôi đã thấy đôi mắt của các bạn — vừa choáng ngợp vừa hứng thú. Tôi biết các bạn đang ở khoảnh khắc giống tôi 10 ngày trước.
+Cảm ơn 50+ người đã ngồi đến 2h sáng cùng tôi tối qua. Tôi đã thấy đôi mắt của các bạn — vừa choáng ngợp vừa hứng thú. Tôi biết các bạn đang ở khoảnh khắc giống tôi 10 ngày trước — khoảnh khắc thầy [Phạm Thành Long](https://long.vn/pham-thanh-long-la-ai/) chia sẻ về Claude và tôi không thể nhắm mắt lại được.
 
 Các bạn không một mình.
 

@@ -149,7 +149,9 @@ Có những showroom đang **scale bằng cách bỏ chữ tín** — bán nhanh
 
 Có những showroom như anh — **scale bằng chữ tín** — chậm hơn, khó hơn, nhưng đi xa hơn.
 
-Em tin anh và Claude AI hợp nhau hơn anh nghĩ. Em sẵn sàng chia sẻ framework — không tốn 1 đồng — vì em là Eagle giống anh, học cùng thầy Long.
+Em tin anh và Claude AI hợp nhau hơn anh nghĩ. Em sẵn sàng chia sẻ framework — không tốn 1 đồng — vì em là Eagle giống anh, học cùng [thầy Phạm Thành Long](https://long.vn/pham-thanh-long-la-ai/).
+
+Cộng đồng Eagle Camp của thầy là cộng đồng đặc biệt. Em đã viết về [hành trình 5 khóa IPS của em](/blog/5-khoa-ips-pham-thanh-long-58-con-nguoi/) — qua 4 lần thất bại khác kiểu trước khi tìm ra con đường ở IPS 15. Em cũng đã chia sẻ về [3 đêm đầu tiên thức trắng với Claude](/blog/3-dem-khong-ngu-vi-claude/) sau khi thầy gợi ý, và [vì sao "chăm chỉ" không còn đủ trong thời đại AI](/blog/cham-chi-khong-con-cuu-duoc-ai/). Em mong bài về anh — và 57 Eagle khác sắp tới — là 1 phần trong knowledge graph chung của cộng đồng PTL.
 
 Châm ngôn anh viết trong bio thực sự đáng để mọi Eagle suy ngẫm:
 

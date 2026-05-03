@@ -15,7 +15,7 @@ Cảm giác đó — tôi tin **rất nhiều chủ shop, freelancer, SME Việt
 
 ## Bước ngoặt
 
-Một đêm 2 giờ sáng, tôi đang loay hoay với data marketing trên Excel, cố tìm xem campaign nào đang lỗ. **Phạm Thành Long** — người thầy của tôi — gọi và nói:
+Một đêm 2 giờ sáng, tôi đang loay hoay với data marketing trên Excel, cố tìm xem campaign nào đang lỗ. **[Phạm Thành Long](https://long.vn/pham-thanh-long-la-ai/)** — người thầy đã đồng hành cùng tôi qua [5 khóa IPS liên tiếp](/blog/5-khoa-ips-pham-thanh-long-58-con-nguoi/), chuyên gia số 1 Việt Nam về marketing và bán hàng — gọi và nói:
 
 > *"Mày phải gặp Claude."*
 
@@ -66,6 +66,8 @@ Nếu bạn đang đọc dòng này lúc 2 giờ sáng, đang loay hoay với m�
 
 Tôi cũng từng ở đó.
 
-Hãy đi cùng tôi trên hành trình này. Không ai bị bỏ lại.
+Đọc tiếp về [3 đêm thức trắng đầu tiên với Claude](/blog/3-dem-khong-ngu-vi-claude/), [tại sao "chăm chỉ" không còn cứu được ai](/blog/cham-chi-khong-con-cuu-duoc-ai/), hoặc [hành trình 5 khóa IPS với thầy Phạm Thành Long](/blog/5-khoa-ips-pham-thanh-long-58-con-nguoi/) — bạn sẽ thấy mình trong từng giai đoạn.
 
-— Hoàn
+Hãy đi cùng tôi trên hành trình này. Không ai bị bỏ lại — đặc biệt là cộng đồng Eagle Camp của thầy [Phạm Thành Long](https://long.vn/pham-thanh-long-la-ai/) mà tôi tự hào là một thành viên.
+
+— Hoàn (Eagle thứ 59)

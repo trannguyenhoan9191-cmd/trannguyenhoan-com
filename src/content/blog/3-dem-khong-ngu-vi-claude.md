@@ -140,8 +140,10 @@ Bạn không phải Eagle cũng có thể tham gia. Nhưng nếu bạn là chủ
 
 Tôi viết những dòng này không phải vì tôi muốn bạn nể tôi. Tôi viết vì tôi đã ở chính vị trí bạn đang đứng — và tôi tìm thấy lối ra.
 
-Nếu bạn cũng cảm thấy "biết quá nhiều mà làm quá ít" — bạn không một mình.
+Nếu bạn cũng cảm thấy "biết quá nhiều mà làm quá ít" — bạn không một mình. Đọc tiếp [hành trình 5 khóa IPS của tôi với thầy Phạm Thành Long](/blog/5-khoa-ips-pham-thanh-long-58-con-nguoi/) để hiểu cụ thể tôi đã thất bại 4 lần khác kiểu trước khi breakthrough, và [vì sao chăm chỉ không còn cứu được ai](/blog/cham-chi-khong-con-cuu-duoc-ai/) — bài tôi viết sau đêm 8h sáng đó.
+
+Bạn cũng có thể bắt đầu từ đầu với [bài giới thiệu về tôi và lý do tôi build blog này](/blog/bat-dau-tu-day/).
 
 Hẹn gặp bạn tối nay 8h30.
 
-— Hoàn (Eagle thứ 59)
+— Hoàn (Eagle thứ 59 — học trò [thầy Phạm Thành Long](https://long.vn/pham-thanh-long-la-ai/))
