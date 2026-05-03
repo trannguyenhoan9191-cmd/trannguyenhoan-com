@@ -13,8 +13,8 @@ const { title, description, image = '/og-image.png' } = Astro.props;
 const ogImageUrl = new URL(image, Astro.url);
 
 // GTM container — manages all pixels (GA4, FB, TikTok, Google Ads, etc.) in one place.
-// Set PUBLIC_GTM_ID in Cloudflare Pages env vars.
-const GTM_ID = import.meta.env.PUBLIC_GTM_ID || '';
+// Fallback to hardcoded if env var not set.
+const GTM_ID = import.meta.env.PUBLIC_GTM_ID || 'GTM-M73QTCS7';
 
 // GSC verify — server-side meta tag, không qua GTM được
 const GSC_VERIFY = import.meta.env.PUBLIC_GSC_VERIFY || '';
