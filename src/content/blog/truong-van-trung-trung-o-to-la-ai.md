@@ -21,11 +21,15 @@ Trung Ô Tô không chọn con đường xây dựng thương hiệu bằng hìn
 
 **2016 – 2022:** Anh giữ vị trí **Trưởng phòng điều hành xe đã qua sử dụng tại Toyota Mỹ Đình** — môi trường doanh nghiệp lớn, tiêu chuẩn nghiêm ngặt. 6 năm trong môi trường top-tier không phải ai cũng trụ được.
 
+![Trương Văn Trung tại showroom Toyota Sure Mỹ Đình — nơi anh làm Trưởng phòng điều hành xe đã qua sử dụng 2016-2022](../../assets/trung-toyota-my-dinh.jpg)
+
 **Sau 2022:** Anh tự ra build thương hiệu riêng — Trung Ô Tô. Mang theo toàn bộ kiến thức kỹ thuật, pháp lý xe và mạng lưới khách hàng tích lũy từ Toyota.
 
 **Tổng cộng:** Hơn **12 năm thực chiến** trong lĩnh vực ô tô đã qua sử dụng. Đây không phải con số trên CV — đây là 12 năm trực tiếp tiếp xúc với xe và con người.
 
 **2023:** Anh tham gia **BNI** — mạng lưới doanh nhân chuyên nghiệp toàn cầu. Mở rộng vai trò kết nối và phát triển cộng đồng kinh doanh.
+
+![Trương Văn Trung trong áo đỏ BNI tại garage thẩm định xe — kết hợp công việc thẩm định kỹ thuật với mạng lưới doanh nhân BNI](../../assets/trung-bni-garage.jpg)
 
 **2024:** Anh hoàn thành **2 cự ly Marathon 42km**. Đây không phải thông tin lifestyle — đây là dấu hiệu của **kỷ luật, sức bền và ý chí vượt giới hạn** mà anh áp dụng vào cả công việc và cuộc sống.
 
